@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "WebtestDb": "Server=SECQV0510589;Database=Webtest;Trusted_Connection=True;"
+  }
+}
