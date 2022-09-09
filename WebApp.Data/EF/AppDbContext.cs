@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using WebApp.Data.Configuration;
 using WebApp.Data.Entities;
 
 namespace WebApp.Data.EF
@@ -11,6 +12,16 @@ namespace WebApp.Data.EF
         public AppDbContext(DbContextOptions options) : base(options)
         {         
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new AppConfigConfiguation());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            //base.OnModelCreating(modelBuilder);
+        }
+
+
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<AppConfig> AppConfigs { get; set; }
