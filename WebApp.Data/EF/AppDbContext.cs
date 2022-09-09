@@ -18,6 +18,7 @@ namespace WebApp.Data.EF
             modelBuilder.ApplyConfiguration(new AppConfigConfiguation());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
             //base.OnModelCreating(modelBuilder);
         }
 
