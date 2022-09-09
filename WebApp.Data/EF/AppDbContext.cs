@@ -15,6 +15,7 @@ namespace WebApp.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //config fluant API
             modelBuilder.ApplyConfiguration(new AppConfigConfiguation());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
