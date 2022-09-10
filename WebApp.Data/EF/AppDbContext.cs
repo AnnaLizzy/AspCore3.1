@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using WebApp.Data.Configuration;
 using WebApp.Data.Entities;
+using WebApp.Data.Extensions;
 
 namespace WebApp.Data.EF
 {
@@ -17,7 +18,7 @@ namespace WebApp.Data.EF
         {
             //config fluant API
             modelBuilder.ApplyConfiguration(new CartConfiguration());
-            modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
+            
             modelBuilder.ApplyConfiguration(new AppConfigConfiguation());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
@@ -34,7 +35,7 @@ namespace WebApp.Data.EF
             modelBuilder.ApplyConfiguration(new SlideConfiguration());
 
             //Data Seeding
-            
+            modelBuilder.Seed();
 
 
             //base.OnModelCreating(modelBuilder);

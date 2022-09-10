@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using webapp.data.entities;
 
 namespace WebApp.Data.Entities
 {
@@ -18,6 +17,6 @@ namespace WebApp.Data.Entities
         public string Provider { set; get; }
 
         public Guid UserId { get; set; }
-        public AppUser AppUser { get;set; }
+        
     }
 }

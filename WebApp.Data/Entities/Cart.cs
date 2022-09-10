@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using webapp.data.entities;
+
 
 namespace WebApp.Data.Entities
 {
@@ -15,6 +15,6 @@ namespace WebApp.Data.Entities
         public Guid UserId { get; set; }
         public Product Product { get; set; }
         public DateTime DateCreated { get; set; }
-        public AppUser AppUser { get; set; }
+  
     }
 }

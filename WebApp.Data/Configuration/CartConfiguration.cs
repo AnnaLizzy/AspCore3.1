@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using webapp.data.entities;
 using WebApp.Data.Entities;
 
 namespace WebApp.Data.Configuration
@@ -19,8 +18,7 @@ namespace WebApp.Data.Configuration
 
             builder.HasOne(x => x.Product).WithMany(x => x.Carts)
                 .HasForeignKey(x => x.ProductId);
-            builder.HasOne(x => x.AppUser).WithMany(x => x.Carts)
-                .HasForeignKey(x => x.UserId);
+           
            
         }
     }
