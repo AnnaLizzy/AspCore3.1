@@ -8,7 +8,7 @@ namespace WebApp.Applications.Catalog.Products.Dtos
     public class GetProductPagingRequest : PagingRequestBase
     {
         public string Keyword { get; set; }
-        public int CategoryID { get; set; }
+        public List<int> CategoryIds { get; set; }
 
     }
 }
