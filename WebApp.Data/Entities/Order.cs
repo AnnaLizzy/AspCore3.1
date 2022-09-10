@@ -17,6 +17,6 @@ namespace WebApp.Data.Entities
 
         public OrderStatus Status { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
-        //public AppUser AppUser { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }
