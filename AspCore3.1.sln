@@ -3,16 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.Application", "WebApp.Application\WebApp.Application.csproj", "{C586F0D5-2AF6-4F8D-AE81-847973869603}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.WebApp", "WebApp.Application\WebApp.WebApp.csproj", "{C586F0D5-2AF6-4F8D-AE81-847973869603}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{391F641B-2522-43AE-9640-5F8FA53C8AC9}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.Data", "WebApp.Data\WebApp.Data.csproj", "{DE80CFD8-95A7-4C51-8606-733FDEDCB904}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.Data", "WebApp.Data\WebApp.Data.csproj", "{DE80CFD8-95A7-4C51-8606-733FDEDCB904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.Applications", "WebApp.Applications\WebApp.Applications.csproj", "{4DA249DD-B0C5-44CF-85B5-D106AE12532F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.Applications", "WebApp.Applications\WebApp.Applications.csproj", "{4DA249DD-B0C5-44CF-85B5-D106AE12532F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
