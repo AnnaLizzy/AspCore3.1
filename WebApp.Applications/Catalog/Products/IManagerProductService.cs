@@ -13,7 +13,6 @@ namespace WebApp.Applications.Catalog.Products
         Task<int> Update(ProductEditRequest request);
         Task<int> Delete(int ProductId);
         Task<List<ProductViewModel>> GetAll();
-        Task<PageViewModel<ProductViewModel>>GetAllPaging(string keyword,
-            int pageIndex,int pageSize);
+        Task<PageResult<ProductViewModel>>GetAllPaging(GetProductPagingRequest request);
     }
 }

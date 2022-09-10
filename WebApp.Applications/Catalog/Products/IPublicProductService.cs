@@ -8,7 +8,7 @@ namespace WebApp.Applications.Catalog.Products
 {
     public interface IPublicProductService
     {
-        public PageViewModel<ProductViewModel> GetAllByCategory(int categoryId,
+        public PageResult<ProductViewModel> GetAllByCategory(int categoryId,
             int pageIndex, int PageSize);
     }
 }

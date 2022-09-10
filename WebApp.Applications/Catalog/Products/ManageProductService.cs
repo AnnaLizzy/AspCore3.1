@@ -36,7 +36,7 @@ namespace WebApp.Applications.Catalog.Products
             throw new NotImplementedException();
         }
 
-        public async Task<PageViewModel<ProductViewModel>> GetAllPaging(string keyword, int pageIndex, int pageSize)
+        public async Task<PageResult<ProductViewModel>> GetAllPaging(string keyword, int pageIndex, int pageSize)
         {
             throw new NotImplementedException();
         }
