@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WebApp.Data\WebApp.Data.csproj" />
+    <ProjectReference Include="..\WebApp.Utilities\WebApp.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

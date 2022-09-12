@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WebApp.Applications.Catalog.Products.Dtos
+namespace WebApp.Applications.Catalog.Products.Dtos.Manage
 {
-    public class ProductEditRequest
+    public class ProductUpdateRequest
     {
-        public int Id { get; set; }       
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Detail { get; set; }
