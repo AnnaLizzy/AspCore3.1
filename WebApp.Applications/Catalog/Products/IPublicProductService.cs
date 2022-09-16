@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using WebApp.Applications.Catalog.Products.Dtos;
-using WebApp.Applications.Catalog.Products.Dtos.Public;
-using WebApp.Applications.Dtos;
+﻿using System.Threading.Tasks;
+using WebApp.ViewModels.Catalog.Products;
+using WebApp.ViewModels.Common;
 
 namespace WebApp.Applications.Catalog.Products
 {
     public interface IPublicProductService
     {
-       Task<PageResult<ProductViewModel>> GetAllByCategory(GetProductPagingRequest request);
+       Task<PageResult<ProductViewModel>> GetAllByCategory(GetPublicProductPagingRequest request);
     }
 }

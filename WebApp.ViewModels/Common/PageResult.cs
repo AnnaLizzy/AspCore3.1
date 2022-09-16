@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WebApp.Applications.Dtos
+namespace WebApp.ViewModels.Common
 {
     public class PageResult<T>
     {

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace WebApp.Applications.Catalog.Products.Dtos.Manage
+namespace WebApp.ViewModels.Catalog.Products
 {
     public class ProductUpdateRequest
     {
@@ -14,5 +15,6 @@ namespace WebApp.Applications.Catalog.Products.Dtos.Manage
         public string SeoAlias { get; set; }
         public string SeoTitle { get; set; }
         public string LangugeId { get; set; }
+        public IFormFile ThumbnailImage { get; set; }
     }
 }

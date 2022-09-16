@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using WebApp.Applications.Catalog.Products.Dtos;
-using WebApp.Applications.Catalog.Products.Dtos.Manage;
-using WebApp.Applications.Dtos;
+using WebApp.ViewModels.Catalog.Products;
+using WebApp.ViewModels.Common;
 
 namespace WebApp.Applications.Catalog.Products
 {
@@ -16,6 +15,6 @@ namespace WebApp.Applications.Catalog.Products
         Task<bool> UpdatePrice(int productId, decimal newPrice);
         Task<bool> UpdateStock(int productId, int addedQuantity);
         Task AddViewCount(int productIdt);    
-        Task<PageResult<ProductViewModel>>GetAllPaging(GetProductPagingRequest request);
+        Task<PageResult<ProductViewModel>>GetAllPaging(GetPublicProductPagingRequest request);
     }
 }

@@ -3,12 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApp.Applications.Catalog.Products.Dtos;
-using WebApp.Applications.Catalog.Products.Dtos.Manage;
-using WebApp.Applications.Dtos;
 using WebApp.Data.EF;
 using WebApp.Data.Entities;
 using WebApp.Utilities.Exceptions;
+using WebApp.ViewModels.Catalog.Products;
+using WebApp.ViewModels.Common;
 
 namespace WebApp.Applications.Catalog.Products
 {
@@ -17,7 +16,7 @@ namespace WebApp.Applications.Catalog.Products
         private readonly AppDbContext _context;
         public ManageProductService(AppDbContext context)
         {
-            _context = context;           
+            _context = context;
         }
 
         public async Task AddViewCount(int productId)
@@ -63,7 +62,7 @@ namespace WebApp.Applications.Catalog.Products
         }
 
 
-        public async Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request)
+        public async Task<PageResult<ProductViewModel>> GetAllPaging(GetPublicProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _context.Products
@@ -73,9 +72,9 @@ namespace WebApp.Applications.Catalog.Products
                         where pt.Name.Contains(request.Keyword)
                         select new { p, pt, pic };
             //2. Filter
-            if(!string.IsNullOrEmpty(request.Keyword))
+            if (!string.IsNullOrEmpty(request.Keyword))
                 query = query.Where(x => x.pt.Name.Contains(request.Keyword));
-            if(request.CategoryIds.Count > 0)
+            if (request.CategoryIds.Count > 0)
             {
                 query = query.Where(p => request.CategoryIds.Contains(p.pic.CategoryId));
             }
@@ -113,16 +112,16 @@ namespace WebApp.Applications.Catalog.Products
         {
             var product = await _context.Products.FindAsync(request.Id);
             var productTranslations = await _context.ProductTranslations.FirstOrDefaultAsync(
-                x=>x.ProductId==request.Id
-                &&  x.LanguageId==request.LangugeId
+                x => x.ProductId == request.Id
+                && x.LanguageId == request.LangugeId
             );
             if (product == null || productTranslations == null)
                 throw new WebAppException($"Cannot find a product with id {request.Id}");
 
-            productTranslations.Name=request.Name;
+            productTranslations.Name = request.Name;
             productTranslations.SeoAlias = request.SeoAlias;
             productTranslations.SeoDescription = request.SeoDecreption;
-            productTranslations.SeoTitle=request.SeoTitle;
+            productTranslations.SeoTitle = request.SeoTitle;
             productTranslations.Description = request.Description;
             productTranslations.Details = request.Detail;
             return await _context.SaveChangesAsync();
@@ -131,7 +130,7 @@ namespace WebApp.Applications.Catalog.Products
         public async Task<bool> UpdatePrice(int productId, decimal newPrice)
         {
             var product = await _context.Products.FindAsync(productId);
-            if (product == null )
+            if (product == null)
                 throw new WebAppException($"Cannot find a product with id {productId}");
             product.Price = newPrice;
             return await _context.SaveChangesAsync() > 0;
