@@ -20,10 +20,9 @@ namespace WebApp.Applications.Catalog.Products
             _context = context;
         }
 
-        public  Task<PageResult<ProductViewModel>> GetAllByCategory(GetPublicProductPagingRequest request)
+        public Task<PageResult<ProductViewModel>> GetAllCategoryById(GetProductPagingRequest request)
         {
             throw new NotImplementedException();
         }
-       
     }
 }

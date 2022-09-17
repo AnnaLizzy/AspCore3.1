@@ -35,6 +35,7 @@ namespace WebApp.Data.EF
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             modelBuilder.ApplyConfiguration(new SlideConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductImageConfiguraton());
 
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
@@ -57,7 +58,7 @@ namespace WebApp.Data.EF
             modelBuilder.Seed();
 
 
-            //base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
 
@@ -75,5 +76,6 @@ namespace WebApp.Data.EF
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<Slide> Slides { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
     }
 }

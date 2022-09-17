@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WebApp.Data\WebApp.Data.csproj" />
     <ProjectReference Include="..\WebApp.Utilities\WebApp.Utilities.csproj" />
     <ProjectReference Include="..\WebApp.ViewModels\WebApp.ViewModels.csproj" />
