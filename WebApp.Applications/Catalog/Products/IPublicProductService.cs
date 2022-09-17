@@ -6,6 +6,6 @@ namespace WebApp.Applications.Catalog.Products
 {
     public interface IPublicProductService
     {
-       Task<PageResult<ProductViewModel>> GetAllCategoryById(GetProductPagingRequest request);
+       Task<PageResult<ProductViewModel>> GetAllCategoryById(GetManageProductPagingRequest request);
     }
 }

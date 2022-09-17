@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Server.IISIntegration;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -100,7 +98,7 @@ namespace WebApp.Applications.Catalog.Products
         }
 
 
-        public async Task<PageResult<ProductViewModel>> GetAllPaging(GetPublicProductPagingRequest request)
+        public async Task<PageResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _context.Products
@@ -144,13 +142,7 @@ namespace WebApp.Applications.Catalog.Products
                 Items = data,
             };
             return pagedResult;
-        }
-
-        public Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
+        }       
         public Task<List<ProductImageViewModel>> GetListImage(int productId)
         {
             throw new NotImplementedException();
