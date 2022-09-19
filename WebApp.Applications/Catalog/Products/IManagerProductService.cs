@@ -13,10 +13,11 @@ namespace WebApp.Applications.Catalog.Products
     {
         Task<int> Create(ProductCreateRequest request);
         Task<int> Update(ProductUpdateRequest request);
-        Task<int> Delete(int ProductId);
+        Task<int> Delete(int productId);
+        Task<ProductViewModel> GetById(int productId, string languageId);
         Task<bool> UpdatePrice(int productId, decimal newPrice);
         Task<bool> UpdateStock(int productId, int addedQuantity);
-        Task AddViewCount(int productIdt);    
+        Task AddViewCount(int productId);    
         Task<PageResult<ProductViewModel>>GetAllPaging(GetManageProductPagingRequest request);
         Task<int> AddImages(int productId, List<IFormFile> files);
         Task<int> RemoveImages(int imageId);

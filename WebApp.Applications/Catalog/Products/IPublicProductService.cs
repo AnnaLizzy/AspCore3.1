@@ -7,8 +7,9 @@ namespace WebApp.Applications.Catalog.Products
 {
     public interface IPublicProductService
     {
-       Task<PageResult<ProductViewModel>> GetAllCategoryById(GetManageProductPagingRequest request);
-        Task<List<ProductViewModel>> GetAll();
+        Task<PageResult<ProductViewModel>> GetAllByCategoryById(GetPublicProductPagingRequest request);
+        Task<List<ProductViewModel>> GetAll(string languageId);
+        
     }
 
 }

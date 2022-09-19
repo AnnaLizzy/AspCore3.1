@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WebApp.Applications\WebApp.Applications.csproj" />
     <ProjectReference Include="..\WebApp.BackendApi\WebApp.BackendApi.csproj" />
     <ProjectReference Include="..\WebApp.Data\WebApp.Data.csproj" />
