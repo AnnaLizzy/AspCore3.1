@@ -26,7 +26,7 @@ namespace WebApp.Applications.Catalog.Products
             _storageService = storageService;
         }
 
-        public Task<int> AddImages(int productId, List<IFormFile> files)
+        public  Task<int> AddImages(int productId, List<IFormFile> files)
         {
             throw new NotImplementedException();
         }

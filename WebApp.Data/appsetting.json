@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "WebtestDb": "Server=SECQV0510589;Database=SafetyWeb;Trusted_Connection=True;"
+    "WebtestDb": "Server=SECQV0510589;Database=WebTest;Trusted_Connection=True;"
   }
 }

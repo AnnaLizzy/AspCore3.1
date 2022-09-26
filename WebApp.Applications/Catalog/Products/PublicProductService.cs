@@ -49,19 +49,21 @@ namespace WebApp.Applications.Catalog.Products
             return data;
         }
 
-        public Task<PageResult<ProductViewModel>> GetAllByCategoryById(GetPublicProductPagingRequest request)
+       
+
+        public Task<PageResult<ProductViewModel>> GetAllByCategoryId(GetPublicProductPagingRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<PageResult<ProductViewModel>> GetAllCategoryById(GetPublicProductPagingRequest request)
+        public async Task<PageResult<ProductViewModel>> GetAllCategoryId(string languageId,GetPublicProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _context.Products
                         join pt in _context.ProductTranslations on p.Id equals pt.ProductId
                         join pic in _context.ProductInCategories on p.Id equals pic.ProductId
                         join c in _context.Categories on pic.CategoryId equals c.Id
-                        where pt.LanguageId == request.LanguageId
+                        where pt.LanguageId == languageId
                         select new { p, pt, pic };
             //2. Filter           
             if (request.CategoryId.HasValue && request.CategoryId.Value >0)

@@ -20,7 +20,7 @@ namespace WebApp.BackendApi.Controllers
         }
         //
         [HttpGet("{languageId}")]
-        public async Task<IActionResult> Get(string languageId)
+        public async Task<IActionResult> Get(string languageId, [FromQuery] GetPublicProductPagingRequest request)
         {
             var products = await _publicProductService.GetAll(languageId);
             return Ok(products);
@@ -29,7 +29,7 @@ namespace WebApp.BackendApi.Controllers
         [HttpGet("public-paging/{languageId}")]
         public async Task<IActionResult> Get([FromQuery] GetPublicProductPagingRequest request)
         {
-            var products = await _publicProductService.GetAllByCategoryById(request);
+            var products = await _publicProductService.GetAllByCategoryId(request);
             return Ok(products);
         }
         [HttpGet("{id}/{languageId}")]
