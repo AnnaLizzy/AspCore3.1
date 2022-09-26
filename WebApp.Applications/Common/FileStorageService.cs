@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Hosting;
 using System.IO;
-using System.Text;
-using Microsoft.AspNetCore.Hosting;
 using System.Threading.Tasks;
 
 namespace WebApp.Applications.Common
@@ -17,7 +14,7 @@ namespace WebApp.Applications.Common
         }
         public string GetFileUrl(string fileName)
         {
-            return $"/{ USER_CONTENT_FOLDER_NAME}/{fileName}";
+            return $"/{USER_CONTENT_FOLDER_NAME}/{fileName}";
         }
         public async Task DeleteFileAsync(string filename)
         {
