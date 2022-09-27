@@ -4,11 +4,13 @@ using System.Threading.Tasks;
 using WebApp.Applications.Catalog.Products;
 using WebApp.ViewModels.Catalog.Products;
 using WebApp.ViewModels.Catalog.ProductImages;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.BackendApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IPublicProductService _publicProductService;
