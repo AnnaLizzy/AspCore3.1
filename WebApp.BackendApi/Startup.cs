@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -35,6 +35,8 @@ namespace WebApp.BackendApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
+
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString(SystemConstant.MainConnectionString))
             );
@@ -55,8 +57,9 @@ namespace WebApp.BackendApi
             //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator >();
             //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
 
-            services.AddControllers()
-                  .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
+            services.AddControllers();
+            //Kiem tra nhap lieu
+            services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
 
             services.AddSwaggerGen(c =>
             {

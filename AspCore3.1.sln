@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.WebApp", "WebApp.Application\WebApp.WebApp.csproj", "{C586F0D5-2AF6-4F8D-AE81-847973869603}"
+	ProjectSection(ProjectDependencies) = postProject
+		{369983B1-052B-495D-8C0C-C9647E37D88A} = {369983B1-052B-495D-8C0C-C9647E37D88A}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{391F641B-2522-43AE-9640-5F8FA53C8AC9}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,11 +17,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.Data", "WebApp.Data\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.Applications", "WebApp.Applications\WebApp.Applications.csproj", "{4DA249DD-B0C5-44CF-85B5-D106AE12532F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.Utilities", "WebApp.Utilities\WebApp.Utilities.csproj", "{8390A6FF-4CE6-4FE9-9F3F-48A191F67E8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.Utilities", "WebApp.Utilities\WebApp.Utilities.csproj", "{8390A6FF-4CE6-4FE9-9F3F-48A191F67E8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.ViewModels", "WebApp.ViewModels\WebApp.ViewModels.csproj", "{BF3CAE97-263E-492E-BBE6-0ABBD824ACA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.ViewModels", "WebApp.ViewModels\WebApp.ViewModels.csproj", "{BF3CAE97-263E-492E-BBE6-0ABBD824ACA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.BackendApi", "WebApp.BackendApi\WebApp.BackendApi.csproj", "{6DC78966-8C89-49D9-8FE7-C13F7E10D709}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.BackendApi", "WebApp.BackendApi\WebApp.BackendApi.csproj", "{6DC78966-8C89-49D9-8FE7-C13F7E10D709}"
+	ProjectSection(ProjectDependencies) = postProject
+		{369983B1-052B-495D-8C0C-C9647E37D88A} = {369983B1-052B-495D-8C0C-C9647E37D88A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.AdminApp", "WebApp.AdminApp\WebApp.AdminApp.csproj", "{369983B1-052B-495D-8C0C-C9647E37D88A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8390A6FF-4CE6-4FE9-9F3F-48A191F67E8A} = {8390A6FF-4CE6-4FE9-9F3F-48A191F67E8A}
+		{DE80CFD8-95A7-4C51-8606-733FDEDCB904} = {DE80CFD8-95A7-4C51-8606-733FDEDCB904}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +62,10 @@ Global
 		{6DC78966-8C89-49D9-8FE7-C13F7E10D709}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DC78966-8C89-49D9-8FE7-C13F7E10D709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DC78966-8C89-49D9-8FE7-C13F7E10D709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{369983B1-052B-495D-8C0C-C9647E37D88A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369983B1-052B-495D-8C0C-C9647E37D88A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369983B1-052B-495D-8C0C-C9647E37D88A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369983B1-052B-495D-8C0C-C9647E37D88A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
