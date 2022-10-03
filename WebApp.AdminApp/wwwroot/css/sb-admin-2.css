@@ -10861,19 +10861,19 @@ a:focus {
 }
 
 .bg-login-image {
-  background: src("/img/undraw_modern_design.svg");
+  background: src(/img/undraw_learning_sketching_.svg);
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background:src("/img/undraw_modern_design.svg");
+  background:src(/img/undraw_modern_design.svg);
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: src("/img/undraw_modern_design.svg");
+  background: src(/img/undraw_modern_design.svg);
   background-position: center;
   background-size: cover;
 }

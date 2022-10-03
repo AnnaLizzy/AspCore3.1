@@ -27,7 +27,7 @@ namespace WebApp.BackendApi.Controllers
             {
                 return BadRequest("UserName or Password incorrect");
             }
-            return Ok(new {Token = resultToken});
+            return Ok( resultToken);
         }
         [HttpPost("register")]
         [AllowAnonymous]
