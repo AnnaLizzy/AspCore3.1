@@ -57,9 +57,10 @@ namespace WebApp.BackendApi
             //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator >();
             //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
             //Kiem tra nhap lieu
-            services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
+
 
             services.AddSwaggerGen(c =>
             {
