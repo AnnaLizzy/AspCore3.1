@@ -7,7 +7,7 @@ namespace WebApp.ViewModels.Catalog.Products
 {
     public class GetManageProductPagingRequest : PagingRequestBase
     {      
-        public string Keyword { get; set; }
-        public List<int> CategoryIds { get; set; }
+        public string Keyword { set; get; }
+        public List<int> CategoryIds { set; get; }
     }
 }

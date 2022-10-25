@@ -7,21 +7,21 @@ namespace WebApp.ViewModels.Catalog.ProductImages
 {
     public class ProductImageViewModel
     {
-        public int Id { get; set; }
+        public int Id { set; get; }
 
-        public int ProductId { get; set; }
+        public int ProductId { set; get; }
 
-        public string ImagePath { get; set; }
+        public string ImagePath { set; get; }
 
-        public string Caption { get; set; }
+        public string Caption { set; get; }
 
-        public bool IsDefault { get; set; }
+        public bool IsDefault { set; get; }
 
-        public DateTime DateCreated { get; set; }
+        public DateTime DateCreated { set; get; }
 
-        public int SortOrder { get; set; }
+        public int SortOrder { set; get; }
 
-        public long FileSize { get; set; }
+        public long FileSize { set; get; }
 
     }
 }

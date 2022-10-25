@@ -8,15 +8,13 @@ namespace WebApp.ViewModels.Catalog.ProductImages
     public class ProductImageCreateRequest
     {   
 
-        public string Caption { get; set; }
+        public string Caption { set; get; }
 
-        public bool IsDefault { get; set; }
+        public bool IsDefault { set; get; }
 
-        public DateTime DateCreated { get; set; }
+        public DateTime DateCreated { set; get; }
+        public int SortOrder { set; get; }
 
-        public int SortOrder { get; set; }
-        
-        public IFormFile imageFile { get; set; }
-        
+        public IFormFile ImageFile { set; get; }
     }
 }

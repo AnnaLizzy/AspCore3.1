@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WebApp.Applications.Catalog.Products;
-using WebApp.ViewModels.Catalog.Products;
 using WebApp.ViewModels.Catalog.ProductImages;
-using Microsoft.AspNetCore.Authorization;
+using WebApp.ViewModels.Catalog.Products;
+
 
 namespace WebApp.BackendApi.Controllers
 {
@@ -20,36 +20,36 @@ namespace WebApp.BackendApi.Controllers
         {
             _publicProductService = publicProductService;
             _managerProductService = managerProductService;
-        }        
+        }
         //http://localhost:port/product?pageIndex=1&pageSize=10&CategoryId=
         [HttpGet("{languageId}")]
-        public async Task<IActionResult> GetAllPaging(string languageId,[FromQuery] GetPublicProductPagingRequest request)
+        public async Task<IActionResult> GetAllPaging(string languageId, [FromQuery] GetPublicProductPagingRequest request)
         {
-            var products = await _publicProductService.GetAllByCategoryId(languageId,request);
+            var products = await _publicProductService.GetAllByCategoryId(languageId, request);
             return Ok(products);
         }
         [HttpGet("{productId}/{languageId}")]
         public async Task<IActionResult> GetById(int productId, string languageId)
         {
             var product = await _managerProductService.GetById(productId, languageId);
-            if(product == null)
-                return BadRequest("Cannot find product");
+            if (product == null)
+                return BadRequest("Khong tim thay ma san pham");
             return Ok(product);
         }
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm]ProductCreateRequest request)
+        public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             var productId = await _managerProductService.Create(request);
-            if(productId == 0)
+            if (productId == 0)
                 return BadRequest();
 
-            var product = await _managerProductService.GetById(productId,request.LangugeId);
+            var product = await _managerProductService.GetById(productId, request.LangugeId);
 
-            return CreatedAtAction(nameof(GetById), new {id = productId} , product);
+            return CreatedAtAction(nameof(GetById), new { id = productId }, product);
         }
         [HttpPut]
         public async Task<IActionResult> Update([FromForm] ProductUpdateRequest request)
@@ -84,13 +84,13 @@ namespace WebApp.BackendApi.Controllers
         }
         //Images
         [HttpPost("{productId}/images")]
-        public async Task<IActionResult> CreateImage(int productId,[FromForm] ProductImageCreateRequest request)
+        public async Task<IActionResult> CreateImage(int productId, [FromForm] ProductImageCreateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var imageId = await _managerProductService.AddImage(productId,request);
+            var imageId = await _managerProductService.AddImage(productId, request);
             if (imageId == 0)
                 return BadRequest();
 
@@ -120,7 +120,7 @@ namespace WebApp.BackendApi.Controllers
                 return BadRequest(ModelState);
             }
             var result = await _managerProductService.RemoveImage(imageId);
-            if(result == 0)
+            if (result == 0)
                 return BadRequest();
             return Ok();
         }

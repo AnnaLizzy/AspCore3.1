@@ -7,16 +7,16 @@ namespace WebApp.ViewModels.Catalog.Products
 {
     public class ProductCreateRequest
     {
-        public decimal OriginPrice { get; set; }
-        public decimal Price { get; set; }
-        public int Stock { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Details { get; set; }
-        public string SeoDecreption { get; set; }
-        public string SeoAlias { get; set; }
-        public string SeoTitle { get; set; }
-        public string LangugeId { get; set; }
-        public IFormFile ThumbnailImage { get; set; }
+        public decimal OriginPrice { set; get; }
+        public decimal Price { set; get; }
+        public int Stock { set; get; }
+        public string Name { set; get; }
+        public string Description { set; get; }
+        public string Details { set; get; }
+        public string SeoDecreption { set; get; }
+        public string SeoAlias { set; get; }
+        public string SeoTitle { set; get; }
+        public string LangugeId { set; get; }
+        public IFormFile ThumbnailImage { set; get; }
     }
 }

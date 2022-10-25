@@ -6,7 +6,7 @@ namespace WebApp.Data.Entities
 {
     public class ProductTranslation
     {
-        public int Id { get; set; }
+        public int Id { set; get; }
         public int ProductId { set; get; }
         public string Name { set; get; }
         public string Description { set; get; }
@@ -14,7 +14,7 @@ namespace WebApp.Data.Entities
         public string SeoDescription { set; get; }
         public string SeoTitle { set; get; }
 
-        public string SeoAlias { get; set; }
+        public string SeoAlias { set; get; }
         public string LanguageId { set; get; }
 
 

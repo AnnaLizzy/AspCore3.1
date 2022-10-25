@@ -6,7 +6,7 @@ namespace WebApp.Data.Entities
 {
     public class Transaction
     {
-        public int Id { get; set; }
+        public int Id { set; get; }
         public DateTime TransactionDate { set; get; }
         public string ExternalTransactionId { set; get; }
         public decimal Amount { set; get; }
@@ -16,7 +16,7 @@ namespace WebApp.Data.Entities
        
         public string Provider { set; get; }
 
-        public Guid UserId { get; set; }
+        public Guid UserId { set; get; }
         public AppUser AppUser { set; get; }
     }
 }

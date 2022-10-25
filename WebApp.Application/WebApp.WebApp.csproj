@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebApp.AdminApp\WebApp.AdminApp.csproj" />
     <ProjectReference Include="..\WebApp.Applications\WebApp.Applications.csproj" />
     <ProjectReference Include="..\WebApp.BackendApi\WebApp.BackendApi.csproj" />
     <ProjectReference Include="..\WebApp.Data\WebApp.Data.csproj" />

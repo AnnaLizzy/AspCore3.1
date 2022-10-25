@@ -38,10 +38,10 @@ namespace WebApp.Applications.Catalog.Products
                 SortOrder = request.SortOrder,
             };
 
-            if (request.imageFile != null)
+            if (request.ImageFile != null)
             {
-                productImage.ImagePath = await this.SaveFile(request.imageFile);
-                productImage.FileSize = request.imageFile.Length;
+                productImage.ImagePath = await this.SaveFile(request.ImageFile);
+                productImage.FileSize = request.ImageFile.Length;
 
             }
             _context.ProductImages.Add(productImage);
@@ -136,7 +136,7 @@ namespace WebApp.Applications.Catalog.Products
             //3.Paging
             int totalRow = await query.CountAsync();
 
-            var data = await query.Skip((request.PageIndex = 1) * request.PageSize)
+            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
                 .Take(request.PageSize)
                 .Select(x => new ProductViewModel()
                 {
@@ -164,29 +164,29 @@ namespace WebApp.Applications.Catalog.Products
         }
 
         public async Task<ProductViewModel> GetById(int productId, string languageId)
-        {
-            var product = await _context.Products.FindAsync(productId);
-            var productTranslation = await _context.ProductTranslations.
-                FirstOrDefaultAsync(x => x.ProductId == productId
-                && x.LanguageId == languageId);
+        {            
+                var product = await _context.Products.FindAsync(productId);
+                var productTranslation = await _context.ProductTranslations.
+                    FirstOrDefaultAsync(x => x.ProductId == productId
+                    && x.LanguageId == languageId);
 
-            var productViewModel = new ProductViewModel()
-            {
-                Id = product.Id,
-                DateCreated = product.DateCreated,
-                Description = productTranslation != null ? productTranslation.Description : null,
-                LanguageId = productTranslation.LanguageId,
-                Details = productTranslation != null ? productTranslation.Details : null,
-                Name = productTranslation != null ? productTranslation.Name : null,
-                OriginPrice = product.OriginPrice,
-                Price = product.Price,
-                SeoAlias = productTranslation != null ? productTranslation.SeoAlias : null,
-                SeoDescription = productTranslation != null ? productTranslation.SeoDescription : null,
-                SeoTitle = productTranslation != null ? productTranslation.SeoTitle : null,
-                Stock = product.Stock,
-                ViewCount = product.ViewCount,
-            };
-            return productViewModel;
+                var productViewModel = new ProductViewModel()
+                {
+                    Id = product.Id,
+                    DateCreated = product.DateCreated,
+                    Description = productTranslation?.Description,
+                    LanguageId = productTranslation.LanguageId,
+                    Details = productTranslation?.Details,
+                    Name = productTranslation?.Name,
+                    OriginPrice = product.OriginPrice,
+                    Price = product.Price,
+                    SeoAlias = productTranslation?.SeoAlias,
+                    SeoDescription = productTranslation?.SeoDescription ,
+                    SeoTitle = productTranslation?.SeoTitle,
+                    Stock = product.Stock,
+                    ViewCount = product.ViewCount
+                };
+                return productViewModel;            
         }
 
         public async Task<ProductImageViewModel> GetImageById(int imageId)

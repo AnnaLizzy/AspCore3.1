@@ -7,14 +7,14 @@ namespace WebApp.ViewModels.Catalog.Products
 {
     public class ProductUpdateRequest
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Detail { get; set; }
-        public string SeoDecreption { get; set; }
-        public string SeoAlias { get; set; }
-        public string SeoTitle { get; set; }
-        public string LangugeId { get; set; }
-        public IFormFile ThumbnailImage { get; set; }
+        public int Id { set; get; }
+        public string Name { set; get; }
+        public string Description { set; get; }
+        public string Detail { set; get; }
+        public string SeoDecreption { set; get; }
+        public string SeoAlias { set; get; }
+        public string SeoTitle { set; get; }
+        public string LangugeId { set; get; }
+        public IFormFile ThumbnailImage { set; get; }
     }
 }

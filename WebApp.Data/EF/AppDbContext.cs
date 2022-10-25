@@ -62,20 +62,20 @@ namespace WebApp.Data.EF
         }
 
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ProductTranslation> ProductTranslations { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<AppConfig> AppConfigs { get; set; }
-        public DbSet<Cart> Carts { get; set; }
-        public DbSet<CategoryTranslation> CategoryTranslations { get; set; }
-        public DbSet<ProductInCategory> ProductInCategories { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Language> Languages { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Promotion> Promotions { get; set; }
-        public DbSet<Slide> Slides { get; set; }
-        public DbSet<Transaction> Transactions { get; set; }
-        public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<Product> Products { set; get; }
+        public DbSet<ProductTranslation> ProductTranslations { set; get; }
+        public DbSet<Category> Categories { set; get; }
+        public DbSet<AppConfig> AppConfigs { set; get; }
+        public DbSet<Cart> Carts { set; get; }
+        public DbSet<CategoryTranslation> CategoryTranslations { set; get; }
+        public DbSet<ProductInCategory> ProductInCategories { set; get; }
+        public DbSet<Contact> Contacts { set; get; }
+        public DbSet<Language> Languages { set; get; }
+        public DbSet<Order> Orders { set; get; }
+        public DbSet<OrderDetail> OrderDetails { set; get; }
+        public DbSet<Promotion> Promotions { set; get; }
+        public DbSet<Slide> Slides { set; get; }
+        public DbSet<Transaction> Transactions { set; get; }
+        public DbSet<ProductImage> ProductImages { set; get; }
     }
 }

@@ -12,6 +12,6 @@ namespace WebApp.Data.Entities
         public decimal Price { set; get; }
 
         public Order Order { set; get; }
-        public Product Product { get; set; }
+        public Product Product { set; get; }
     }
 }

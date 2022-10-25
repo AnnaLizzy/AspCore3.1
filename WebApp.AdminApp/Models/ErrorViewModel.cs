@@ -4,7 +4,7 @@ namespace WebApp.AdminApp.Models
 {
     public class ErrorViewModel
     {
-        public string RequestId { get; set; }
+        public string RequestId { set; get; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }

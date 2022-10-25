@@ -17,7 +17,7 @@ namespace WebApp.ViewModels.System.Users
                 .WithMessage("Nhap lai");
             RuleFor(c => c.Email).NotEmpty().WithMessage("Email is required")
                 .Matches(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")
-                .WithMessage("Email format not match");
+                .WithMessage("Định dạng Emial ko đúng");
             RuleFor(c => c.PhoneNumber).NotEmpty().WithMessage("Phone Number is required");
             RuleFor(c => c.UserName).NotEmpty().WithMessage("UserName is required");
             RuleFor(c => c.Password).NotEmpty().WithMessage("Password is required")

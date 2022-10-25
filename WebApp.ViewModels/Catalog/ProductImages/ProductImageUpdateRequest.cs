@@ -7,15 +7,15 @@ namespace WebApp.ViewModels.Catalog.ProductImages
 {
     public class ProductImageUpdateRequest
     {
-        public int Id { get; set; }       
+        public int Id { set; get; }
 
-        public string Caption { get; set; }
+        public string Caption { set; get; }
 
-        public bool IsDefault { get; set; }
-   
+        public bool IsDefault { set; get; }
 
-        public int SortOrder { get; set; }
 
-        public IFormFile ImageFile { get; set; }
+        public int SortOrder { set; get; }
+
+        public IFormFile ImageFile { set; get; }
     }
 }

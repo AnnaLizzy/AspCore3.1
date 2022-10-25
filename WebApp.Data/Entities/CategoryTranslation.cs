@@ -6,7 +6,7 @@ namespace WebApp.Data.Entities
 {
     public class CategoryTranslation
     {
-        public int Id { get; set; }
+        public int Id { set; get; }
         public int CategoryId { set; get; }
         public string Name { set; get; }
         public string SeoDescription { set; get; }

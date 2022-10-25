@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq.Dynamic.Core;
 using System.Security.Claims;//
 using System.Text;
 using System.Threading.Tasks;
@@ -48,13 +49,19 @@ namespace WebApp.Applications.System.User
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(_config["Tokens:Issuer"],
-                       _config["Tokens: Issuer"],
+            var token = new JwtSecurityToken(
+                       issuer: _config["Tokens:Issuer"],
+                       audience: _config["Tokens:Issuer"],
                        claims,
                        expires: DateTime.Now.AddHours(3),
                        signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);    
+        }
+
+        public Task<PagedResult<UserVM>> GetUserPaging(GetUserPagingRequest request)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<bool> Register(RegisterRequest register)

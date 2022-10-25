@@ -12,8 +12,8 @@ namespace WebApp.Data.Entities
         public string Description { set; get; }
         public string Url { set; get; }
 
-        public string Image { get; set; }
-        public int SortOrder { get; set; }
+        public string Image { set; get; }
+        public int SortOrder { set; get; }
         public Status Status { set; get; }
     }
 }

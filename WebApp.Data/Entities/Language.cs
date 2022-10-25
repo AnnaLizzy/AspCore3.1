@@ -6,13 +6,13 @@ namespace WebApp.Data.Entities
 {
     public class Language
     {
-        public string Id { get; set; }
+        public string Id { set; get; }
 
-        public string Name { get; set; }
+        public string Name { set; get; }
 
-        public bool IsDefault { get; set; }
+        public bool IsDefault { set; get; }
 
-        public List<ProductTranslation> ProductTranslations { get; set; }
-        public List<CategoryTranslation> CategoryTranslations { get; set; }
+        public List<ProductTranslation> ProductTranslations { set; get; }
+        public List<CategoryTranslation> CategoryTranslations { set; get; }
     }
 }

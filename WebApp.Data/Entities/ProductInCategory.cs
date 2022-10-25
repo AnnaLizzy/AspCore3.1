@@ -6,9 +6,9 @@ namespace WebApp.Data.Entities
 {
     public class ProductInCategory
     {
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public int ProductId { set; get; }
+        public Product Product { set; get; }
+        public int CategoryId { set; get; }
+        public Category Category { set; get; }
     }
 }
