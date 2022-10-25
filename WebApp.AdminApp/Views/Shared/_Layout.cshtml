@@ -9,13 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@ViewData["Title"] SB Admin 2 - Dashboard</title>
+    <title>@ViewData["Title"] - Trang quản trị</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
@@ -35,7 +32,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Trang quản trị</div>
             </a>
 
             <!-- Divider -->
@@ -350,13 +347,12 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <form method="post" asp-controller="User" asp-action="Logout">
-                                    <button class="dropdown-item" type="submit">Đăng xuất</button>
-                                   @* <a class="dropdown-item" href="#" data-toggle="modal"  >
+
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Logout
-                                    </a>*@
-                                </form>
+                                        Đăng xuất
+                                    </a>
+                               
                                 
                             </div>
                         </li>
@@ -388,7 +384,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; ATTW 2022</span>
                     </div>
                 </div>
             </footer>
@@ -411,15 +407,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc là muốn đăng xuất không ?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Dẫu sao cuộc đời còn tươi đẹp, suy nghĩ lại đi</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <form method="post" asp-controller="User" asp-action="Logout">
+                       <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy bỏ</button>
+                        <button class="btn btn-danger" type="submit">Đăng xuất</button>
+                    </form>
                 </div>
             </div>
         </div>
