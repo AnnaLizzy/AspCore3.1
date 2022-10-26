@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace WebApp.ViewModels.System.Users
@@ -8,6 +9,7 @@ namespace WebApp.ViewModels.System.Users
     {
         public string FirtName { set; get; }
         public string LastName { set; get; }
+        [DataType(DataType.Date)]
         public DateTime Dob { set; get; }
         public string Email { set; get; }
         public string PhoneNumber { set; get; }

@@ -44,8 +44,10 @@ namespace WebApp.AdminApp
             });
 
 
-            services.AddControllersWithViews()
-                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
+            services.AddControllersWithViews();
+            // kiem tra nhap lieu
+            services.AddFluentValidationAutoValidation();
+            services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
 
             services.AddTransient<IUserApiClient, UserApiClient>();
         }
