@@ -6,7 +6,7 @@ using WebApp.ViewModels.Common;
 
 namespace WebApp.Applications.Catalog.Products
 {
-    public interface IManagerProductService
+    public interface IProductService
     {
         Task<int> Create(ProductCreateRequest request);
         Task<int> Update(ProductUpdateRequest request);
@@ -27,5 +27,6 @@ namespace WebApp.Applications.Catalog.Products
         Task<ProductImageViewModel> GetImageById (int imageId);
 
         Task<List<ProductImageViewModel>> GetListImages(int productId);
+        Task<PageResult<ProductViewModel>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
     }
 }

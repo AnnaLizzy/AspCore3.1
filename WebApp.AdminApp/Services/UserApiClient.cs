@@ -3,6 +3,7 @@ using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using WebApp.ViewModels.Common;
 using WebApp.ViewModels.System.Users;
 
 namespace WebApp.AdminApp.Models.Services
@@ -25,6 +26,11 @@ namespace WebApp.AdminApp.Models.Services
             var response = await client.PostAsync("/api/user/authenticate", httpContent);
             var token = await response.Content.ReadAsStringAsync();
             return token;
+        }
+
+        public Task<PageResult<UserVM>> UserPagings(GetUserPagingRequest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }

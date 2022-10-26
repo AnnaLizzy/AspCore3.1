@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WebApp.Applications.System.User;
+using WebApp.ViewModels.Catalog.Products;
 using WebApp.ViewModels.System.Users;
 
 namespace WebApp.BackendApi.Controllers
@@ -41,6 +42,12 @@ namespace WebApp.BackendApi.Controllers
                 return BadRequest("Unsuccess");
             }
             return Ok();
+        }
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging( [FromQuery] GetUserPagingRequest request)
+        {
+            var products = await _userService.GetUserPaging(request);
+            return Ok(products);
         }
     }
 }

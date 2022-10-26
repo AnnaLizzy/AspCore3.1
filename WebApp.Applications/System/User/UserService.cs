@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq.Dynamic.Core;
@@ -9,7 +11,7 @@ using System.Security.Claims;//
 using System.Text;
 using System.Threading.Tasks;
 using WebApp.Data.Entities;
-using WebApp.Utilities.Exceptions;
+using WebApp.ViewModels.Common;
 using WebApp.ViewModels.System.Users;
 
 namespace WebApp.Applications.System.User
@@ -58,12 +60,7 @@ namespace WebApp.Applications.System.User
 
             return new JwtSecurityTokenHandler().WriteToken(token);    
         }
-
-        public Task<PagedResult<UserVM>> GetUserPaging(GetUserPagingRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public async Task<bool> Register(RegisterRequest register)
         {
             var user = new AppUser()
@@ -82,6 +79,38 @@ namespace WebApp.Applications.System.User
                 return true;
             }
             return false;
+        }
+
+
+        public async Task <PageResult<UserVM>> GetUserPaging(GetUserPagingRequest request)
+        {
+            var query = _userManager.Users;
+            if (!string.IsNullOrEmpty(request.Keyword))
+            {
+                query = query.Where(z => z.UserName.Contains(request.Keyword)
+                || z.PhoneNumber.Contains(request.Keyword));
+            }
+           
+            int totalRow = await query.CountAsync();
+
+            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize)
+                .Select(z => new UserVM
+                {
+                    Email = z.Email,
+                    FirstName = z.FirstName,
+                    LastName = z.LastName,
+                    Id = z.Id,
+                    PhoneNumber = z.PhoneNumber,
+                    UserName = z.UserName
+                }).ToListAsync();
+            
+            var pagedResult = new PageResult<UserVM>()
+            {
+                TotalRecord = totalRow,
+                Items = data,
+            };
+            return pagedResult;
         }
     }
 }

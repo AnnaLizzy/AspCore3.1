@@ -1,10 +1,10 @@
 using System;
 
-namespace WebApp.Application.Models
+namespace WebApplication.WebApp.Models
 {
     public class ErrorViewModel
     {
-        public string RequestId { set; get; }
+        public string RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
