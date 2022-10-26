@@ -32,6 +32,19 @@ namespace WebApp.AdminApp.Models.Services
             return token;
         }
 
+        public async Task<bool> RegisterUser(RegisterRequest registerRequest)
+        {
+            var client = _httpClientFactory.CreateClient();
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+
+            var Json = JsonConvert.SerializeObject(registerRequest);
+            var httpContent = new StringContent(Json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("/api/user/paging?PageIndex=",httpContent);
+            
+            return response.IsSuccessStatusCode;
+        }
+
         public async Task<PageResult<UserVM>> UserPagings(GetUserPagingRequest request)
         {
             var client = _httpClientFactory.CreateClient();

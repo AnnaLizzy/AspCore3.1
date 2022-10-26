@@ -8,5 +8,6 @@ namespace WebApp.AdminApp.Models.Services
     {
         Task<string> Authenticate(LoginRequest request);
         Task<PageResult<UserVM>> UserPagings(GetUserPagingRequest request);
+        Task<bool> RegisterUser(RegisterRequest registerRequest);
     }
 }

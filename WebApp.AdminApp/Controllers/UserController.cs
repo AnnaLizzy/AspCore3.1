@@ -41,6 +41,23 @@ namespace WebApp.AdminApp.Controllers
         }
 
         [HttpGet]
+        public IActionResult CreateUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateUser(RegisterRequest request )
+        {
+            if (!ModelState.IsValid)
+                return View(ModelState);
+            var result = await _userApiClient.RegisterUser(request);
+            if(result)
+                return RedirectToAction("Index");
+            return View(request);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Login()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
