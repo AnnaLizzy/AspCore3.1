@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using WebApp.ViewModels.Common;
@@ -12,9 +14,11 @@ namespace WebApp.AdminApp.Models.Services
     {
         private readonly IHttpClientFactory _httpClientFactory;
         //IHttpClientFactory goi WebApI
-        public UserApiClient (IHttpClientFactory httpClientFactory)
+        private readonly IConfiguration _configuration;
+        public UserApiClient (IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
         public  async Task<string> Authenticate(LoginRequest request)
         {
@@ -22,15 +26,22 @@ namespace WebApp.AdminApp.Models.Services
             var httpContent = new StringContent(Json,Encoding.UTF8,"application/json");
 
             var client = _httpClientFactory.CreateClient();
-            client.BaseAddress = new Uri("https://localhost:5001");
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
             var response = await client.PostAsync("/api/user/authenticate", httpContent);
             var token = await response.Content.ReadAsStringAsync();
             return token;
         }
 
-        public Task<PageResult<UserVM>> UserPagings(GetUserPagingRequest request)
+        public async Task<PageResult<UserVM>> UserPagings(GetUserPagingRequest request)
         {
-            throw new NotImplementedException();
+            var client = _httpClientFactory.CreateClient();
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", request.BearerToken);
+            var response = await client.GetAsync($"/api/user/paging?PageIndex=" +
+                $"{request.PageIndex}&PageSize={request.PageSize}&Keyword={request.Keyword}");
+            var body = await response.Content.ReadAsStringAsync();
+            var users = JsonConvert.DeserializeObject<PageResult<UserVM>>(body);
+            return users;
         }
     }
 }
