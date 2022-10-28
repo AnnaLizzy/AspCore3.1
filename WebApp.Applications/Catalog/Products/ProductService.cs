@@ -207,29 +207,29 @@ namespace WebApp.Applications.Catalog.Products
         }
 
         public async Task<ProductViewModel> GetById(int productId, string languageId)
-        {            
-                var product = await _context.Products.FindAsync(productId);
-                var productTranslation = await _context.ProductTranslations.
-                    FirstOrDefaultAsync(x => x.ProductId == productId
-                    && x.LanguageId == languageId);
+        {
+            var product = await _context.Products.FindAsync(productId);
+            var productTranslation = await _context.ProductTranslations.
+                FirstOrDefaultAsync(x => x.ProductId == productId
+                && x.LanguageId == languageId);
 
-                var productViewModel = new ProductViewModel()
-                {
-                    Id = product.Id,
-                    DateCreated = product.DateCreated,
-                    Description = productTranslation?.Description,
-                    LanguageId = productTranslation.LanguageId,
-                    Details = productTranslation?.Details,
-                    Name = productTranslation?.Name,
-                    OriginPrice = product.OriginPrice,
-                    Price = product.Price,
-                    SeoAlias = productTranslation?.SeoAlias,
-                    SeoDescription = productTranslation?.SeoDescription ,
-                    SeoTitle = productTranslation?.SeoTitle,
-                    Stock = product.Stock,
-                    ViewCount = product.ViewCount
-                };
-                return productViewModel;            
+            var productViewModel = new ProductViewModel()
+            {
+                Id = product.Id,
+                DateCreated = product.DateCreated,
+                Description = productTranslation?.Description,
+                LanguageId = productTranslation.LanguageId,
+                Details = productTranslation?.Details,
+                Name = productTranslation?.Name,
+                OriginPrice = product.OriginPrice,
+                Price = product.Price,
+                SeoAlias = productTranslation?.SeoAlias,
+                SeoDescription = productTranslation?.SeoDescription,
+                SeoTitle = productTranslation?.SeoTitle,
+                Stock = product.Stock,
+                ViewCount = product.ViewCount
+            };
+            return productViewModel;
         }
 
         public async Task<ProductImageViewModel> GetImageById(int imageId)
@@ -238,16 +238,16 @@ namespace WebApp.Applications.Catalog.Products
             if (image == null)
                 throw new WebAppException($"Khong tim thay anh voi id:{imageId}");
             var viewModel = new ProductImageViewModel()
-               {
-                   Caption = image.Caption,
-                   DateCreated = image.DateCreated,
-                   FileSize = image.FileSize,
-                   Id = image.Id,
-                   ImagePath = image.ImagePath,
-                   IsDefault = image.IsDefault,
-                   SortOrder  = image.SortOrder,
-                   ProductId = image.ProductId,
-               };
+            {
+                Caption = image.Caption,
+                DateCreated = image.DateCreated,
+                FileSize = image.FileSize,
+                Id = image.Id,
+                ImagePath = image.ImagePath,
+                IsDefault = image.IsDefault,
+                SortOrder = image.SortOrder,
+                ProductId = image.ProductId,
+            };
             return viewModel;
         }
 
@@ -267,7 +267,7 @@ namespace WebApp.Applications.Catalog.Products
                 }).ToListAsync();
         }
 
-        public async Task<int> RemoveImage( int imageId)
+        public async Task<int> RemoveImage(int imageId)
         {
             var productImages = await _context.ProductImages.FindAsync(imageId);
             if (productImages == null)
@@ -322,7 +322,7 @@ namespace WebApp.Applications.Catalog.Products
 
         }
 
-        public async Task<int> UpdateImage( int imageId, ProductImageUpdateRequest request)
+        public async Task<int> UpdateImage(int imageId, ProductImageUpdateRequest request)
         {
             var productImage = await _context.ProductImages.FindAsync(imageId);
             if (productImage == null)

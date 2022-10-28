@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using WebApp.Data.Entities;
 
 namespace WebApp.Data.Configuration
@@ -15,7 +12,7 @@ namespace WebApp.Data.Configuration
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
 
-            builder.Property(x =>x.Name).IsRequired().HasMaxLength(200);
+            builder.Property(x => x.Name).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Details).HasMaxLength(200);
             builder.Property(x => x.SeoAlias).IsRequired().HasMaxLength(200);
 

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WebApp.Data.Enum;
+﻿using WebApp.Data.Enum;
 
 namespace WebApp.Data.Entities
 {

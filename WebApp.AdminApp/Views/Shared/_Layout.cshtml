@@ -63,7 +63,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Hệ thống:</h6>
+                        <h6 class="collapse-header">Hệ thống người dùng:</h6>
                         <a class="collapse-item" asp-controller="User" asp-action="Index">Danh sách</a>
                         <a class="collapse-item" asp-controller="User" asp-action="CreateUser">Thêm mới</a>
                     </div>
@@ -362,11 +362,11 @@
     <script src="~/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="~/vendor/chart.js/Chart.min.js"></script>
+   @* <script src="~/vendor/chart.js/Chart.min.js"></script>*@
 
     <!-- Page level custom scripts -->
-    <script src="~/js/demo/chart-area-demo.js"></script>
-    <script src="~/js/demo/chart-pie-demo.js"></script>
+    @*<script src="~/js/demo/chart-area-demo.js"></script>
+    <script src="~/js/demo/chart-pie-demo.js"></script>*@
     @RenderSection("Scripts", required:false)
 </body>
 

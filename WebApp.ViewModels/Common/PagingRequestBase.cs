@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WebApp.ViewModels.Common
+﻿namespace WebApp.ViewModels.Common
 {
-    public class PagingRequestBase : RequestBase
+    public class PagingRequestBase
     {
         public int PageIndex { set; get; }
         public int PageSize { set; get; }

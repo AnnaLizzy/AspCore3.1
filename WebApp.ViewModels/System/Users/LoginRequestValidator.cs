@@ -1,7 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace WebApp.ViewModels.System.Users
 {
@@ -11,7 +8,7 @@ namespace WebApp.ViewModels.System.Users
         {
             RuleFor(X => X.UserName).NotEmpty().WithMessage("UserName is required");
             RuleFor(X => X.Password).NotEmpty().WithMessage("Password is required")
-                .MinimumLength(6).WithMessage("Password is at least 6 character ");
+                .MinimumLength(6).WithMessage("Mật khẩu gồm 6 kí tự ! ");
         }
     }
 }

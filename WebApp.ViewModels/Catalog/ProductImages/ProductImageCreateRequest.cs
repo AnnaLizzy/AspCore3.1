@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace WebApp.ViewModels.Catalog.ProductImages
 {
     public class ProductImageCreateRequest
-    {   
+    {
 
         public string Caption { set; get; }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WebApp.Data.Entities
+﻿namespace WebApp.Data.Entities
 {
     public class ProductTranslation
     {
@@ -18,7 +14,7 @@ namespace WebApp.Data.Entities
         public string LanguageId { set; get; }
 
 
-        public Product Product { get;set; }
+        public Product Product { get; set; }
         public Language Language { set; get; }
     }
 }

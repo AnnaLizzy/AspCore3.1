@@ -1,12 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
-using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Text;
 
 namespace WebApp.Data.EF
 {

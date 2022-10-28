@@ -2,25 +2,23 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using WebApp.Data.Configuration;
 using WebApp.Data.Entities;
 using WebApp.Data.Extensions;
 
 namespace WebApp.Data.EF
 {
-    public class AppDbContext : IdentityDbContext<AppUser,AppRole,Guid>
+    public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
         public AppDbContext(DbContextOptions options) : base(options)
-        {         
+        {
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //config fluant API
             modelBuilder.ApplyConfiguration(new CartConfiguration());
-            
+
             modelBuilder.ApplyConfiguration(new AppConfigConfiguation());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
@@ -52,7 +50,7 @@ namespace WebApp.Data.EF
 
             modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
             modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserUserTokens")
-                .HasKey(x=> x.UserId);
+                .HasKey(x => x.UserId);
 
             //Data Seeding
             modelBuilder.Seed();

@@ -1,9 +1,8 @@
 ﻿@using WebApp.ViewModels.System.Users
 @model LoginRequest
 @{
-    Layout = null;
+    Layout =null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,11 +14,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Administrator  - Login</title>
+    <title> Administrator - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-   
+
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
@@ -39,7 +38,7 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block " >
+                            <div class="col-lg-6 d-none d-lg-block ">
                                 <img style="width:500px;padding-left: 3rem;padding-top: 3rem;" src="/img/undraw_learning_sketching_.svg" />
                             </div>
                             <div class="col-lg-6">
@@ -47,10 +46,10 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back! </h1>
                                     </div>
-                                    <form class="user" asp-action="Login" asp-controller="User" method="post">
+                                    <form class="user" asp-action="Index" asp-controller="Login" method="post">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                   asp-for="UserName"  
+                                                   asp-for="UserName"
                                                    placeholder="Username">
                                         </div>
                                         <div class="form-group">
@@ -66,9 +65,9 @@
                                                 </label>
                                             </div>
                                         </div>
-                                       
+
                                         <button class="btn btn-primary btn-user btn-block " type="submit">Login</button>
-                                       
+
                                     </form>
                                     <hr>
                                     <div class="text-center">

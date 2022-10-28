@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using WebApp.Data.Enum;
 
 namespace WebApp.Data.Entities
@@ -8,7 +6,7 @@ namespace WebApp.Data.Entities
     public class Category
     {
         public int Id { set; get; }
-        public int SortOrder{ set; get; }
+        public int SortOrder { set; get; }
         public bool IsShowOnHome { set; get; }
         public int? ParentId { set; get; }
 

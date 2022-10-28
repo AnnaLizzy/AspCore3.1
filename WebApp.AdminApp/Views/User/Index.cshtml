@@ -28,10 +28,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
-                            <th>
-                                ID
-                            </th>
+                        <tr>                           
                             <th>
                                 Tên
                             </th>
@@ -53,10 +50,7 @@
                     <tbody>
                         @foreach (var item in Model.Items)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Id)
-                                </td>
+                            <tr>                            
                                 <td>
                                     @Html.DisplayFor(modelItem => item.FirstName)
                                 </td>
@@ -73,9 +67,9 @@
                                     @Html.DisplayFor(modelItem => item.Email)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                    @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
+                                    @Html.ActionLink("Details", "Details", new {  id=item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
                                 </td>
                             </tr>
                         }

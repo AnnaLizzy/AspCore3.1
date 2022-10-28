@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace WebApp.Data.Entities
 {
@@ -13,7 +11,7 @@ namespace WebApp.Data.Entities
         public decimal Fee { set; get; }
         public string Result { set; get; }
         public string Message { set; get; }
-       
+
         public string Provider { set; get; }
 
         public Guid UserId { set; get; }

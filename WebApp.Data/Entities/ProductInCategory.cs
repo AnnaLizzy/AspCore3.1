@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WebApp.Data.Entities
+﻿namespace WebApp.Data.Entities
 {
     public class ProductInCategory
     {

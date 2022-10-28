@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using WebApp.Data.Entities;
 
 namespace WebApp.Data.Configuration
@@ -19,9 +16,9 @@ namespace WebApp.Data.Configuration
 
             builder.Property(x => x.Price).IsRequired();
             builder.Property(x => x.OriginPrice).IsRequired();
-            builder.Property(x =>x.Stock).IsRequired().HasDefaultValue(0);
+            builder.Property(x => x.Stock).IsRequired().HasDefaultValue(0);
             builder.Property(x => x.ViewCount).IsRequired().HasDefaultValue(0);
-            
+
         }
     }
 }

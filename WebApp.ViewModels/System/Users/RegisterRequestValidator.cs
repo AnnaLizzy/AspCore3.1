@@ -1,7 +1,5 @@
 ﻿using FluentValidation;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace WebApp.ViewModels.System.Users
 {
@@ -9,24 +7,24 @@ namespace WebApp.ViewModels.System.Users
     {
         public RegisterRequestValidator()
         {
-            RuleFor(c => c.FirtName).NotEmpty().WithMessage("First Name is required")
-                .MaximumLength(200).WithMessage("First Name is not over 200 charecters");
-            RuleFor(c => c.LastName).NotEmpty().WithMessage("First Name is required")
-                .MaximumLength(200).WithMessage("First Name is not over 200 charecters");
+            RuleFor(c => c.FirstName).NotEmpty().WithMessage("Không bỏ trống trường này !")
+                .MaximumLength(200).WithMessage("Tên không quá 200 kí tự !");
+            RuleFor(c => c.LastName).NotEmpty().WithMessage("Không bỏ trống trường này !")
+                .MaximumLength(200).WithMessage("Họ không quá 200 kí tự !");
             RuleFor(c => c.Dob).GreaterThan(DateTime.Now.AddYears(-100))
-                .WithMessage("Nhap lai");
-            RuleFor(c => c.Email).NotEmpty().WithMessage("Email is required")
+                .WithMessage("Nhập lại !");
+            RuleFor(c => c.Email).NotEmpty().WithMessage("Không bỏ trống trường này !")
                 .Matches(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")
-                .WithMessage("Định dạng Emial ko đúng");
-            RuleFor(c => c.PhoneNumber).NotEmpty().WithMessage("Phone Number is required");
-            RuleFor(c => c.UserName).NotEmpty().WithMessage("UserName is required");
-            RuleFor(c => c.Password).NotEmpty().WithMessage("Password is required")
-                .MinimumLength(6).WithMessage("Password is at least 6 character ");
+                .WithMessage("Định dạng Email không đúng !");
+            RuleFor(c => c.PhoneNumber).NotEmpty().WithMessage("Không bỏ trống trường này !");
+            RuleFor(c => c.UserName).NotEmpty().WithMessage("Nhập tên người dùng !");
+            RuleFor(c => c.Password).NotEmpty().WithMessage("Nhập mật khẩu !")
+                .MinimumLength(6).WithMessage("Mật khẩu ít nhất 6 kí tự !");
             RuleFor(c => c).Custom((request, context) =>
             {
                 if (request.Password != request.ConfirmPassword)
                 {
-                    context.AddFailure("Confirm password is not match");
+                    context.AddFailure("Mật khẩu nhập lại không đúng !");
                 }
             });
         }

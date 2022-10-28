@@ -1,11 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using WebApp.BackendApi.Models;
 
 namespace WebApp.BackendApi.Controllers
 {
@@ -22,6 +16,6 @@ namespace WebApp.BackendApi.Controllers
         {
             return Ok();
         }
-                
+
     }
 }

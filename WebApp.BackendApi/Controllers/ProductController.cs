@@ -14,8 +14,8 @@ namespace WebApp.BackendApi.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
-       
-        public ProductController(IProductService productService  )
+
+        public ProductController(IProductService productService)
         {
             _productService = productService;
         }
@@ -49,6 +49,7 @@ namespace WebApp.BackendApi.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = productId }, product);
         }
+        //PUT localhost/api/user/
         [HttpPut]
         public async Task<IActionResult> Update([FromForm] ProductUpdateRequest request)
         {
