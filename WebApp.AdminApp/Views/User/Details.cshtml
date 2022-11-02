@@ -1,0 +1,75 @@
+﻿@model WebApp.ViewModels.System.Users.UserVM
+
+@{
+    ViewData["Title"] = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid text-gray-900">
+
+    
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 class="h3 mb-0 justify-content-center text-gray-900">Chi tiết</h1>
+        </div>
+        <div class="card-body">
+            <div class="col-md-12">
+                <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.UserName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Dob)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Dob)
+                </dd>
+               
+                </dl>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div>
+    <a asp-action="Index" asp-controller="User" class="btn btn-primary ">
+        <span class="icon text-white-50">
+            <i class="fas fa-chevron-left"></i>
+        </span>
+        <span class="text">Quay về </span>
+    </a>
+</div>
+

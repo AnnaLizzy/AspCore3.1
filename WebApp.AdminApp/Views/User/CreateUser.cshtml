@@ -7,11 +7,14 @@
 }
 
 <h4>Thêm người dùng</h4>
-
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+    <li class="breadcrumb-item active">Thêm người dùng</li>
+</ol>
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 text-black-50">
         <form asp-action="CreateUser">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">

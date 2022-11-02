@@ -34,7 +34,7 @@ namespace WebApp.Applications.System.User
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
             if (user == null)
-                return null;
+                return new ApiErrorResult<string>("Tài khoản không tồn tại");
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
             if (!result.Succeeded)
             {
@@ -98,27 +98,27 @@ namespace WebApp.Applications.System.User
             var query = _userManager.Users;
             if (!string.IsNullOrEmpty(request.Keyword))
             {
-                query = query.Where(z => z.UserName.Contains(request.Keyword)
-                || z.PhoneNumber.Contains(request.Keyword));
+                query = query.Where(x => x.UserName.Contains(request.Keyword)
+                || x.PhoneNumber.Contains(request.Keyword));
             }
 
             int totalRow = await query.CountAsync();
 
-            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
+            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)//
                 .Take(request.PageSize)
-                .Select(z => new UserVM
+                .Select(x => new UserVM
                 {
-                    Email = z.Email,
-                    FirstName = z.FirstName,
-                    LastName = z.LastName,
-                    Id = z.Id,
-                    PhoneNumber = z.PhoneNumber,
-                    UserName = z.UserName
+                    Email = x.Email,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Id = x.Id,
+                    PhoneNumber =x.PhoneNumber,
+                    UserName = x.UserName
                 }).ToListAsync();
 
             var pagedResult = new PageResult<UserVM>()
             {
-                TotalRecord = totalRow,
+                TotalRecords = totalRow,
                 Items = data,
             };
             return new ApiSuccessResult<PageResult<UserVM>>(pagedResult);
@@ -163,6 +163,20 @@ namespace WebApp.Applications.System.User
                 Dob = user.Dob,
             };
             return new ApiSuccessResult<UserVM>(userVm);
+        }
+
+        public async Task<ApiResult<bool>> Delete(Guid id)
+        {
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            if (user == null)
+            {
+                return new ApiErrorResult<bool>("User không tồn tại");
+            }
+            var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+                return new ApiSuccessResult<bool>();
+           
+            return new ApiErrorResult<bool>("Xóa không thành công");
         }
     }
 }

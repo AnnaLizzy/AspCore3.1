@@ -154,8 +154,10 @@ namespace WebApp.Applications.Catalog.Products
             //4. Select and Projection
             var pagedResult = new PageResult<ProductViewModel>()
             {
-                TotalRecord = totalRow,
+                TotalRecords = totalRow,
                 Items = data,
+                PageIndex =request.PageIndex,
+                PageSize =request.PageSize,
             };
             return pagedResult;
         }
@@ -200,7 +202,9 @@ namespace WebApp.Applications.Catalog.Products
             //4. Select and Projection
             var pagedResult = new PageResult<ProductViewModel>()
             {
-                TotalRecord = totalRow,
+                TotalRecords = totalRow,
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize,
                 Items = data,
             };
             return pagedResult;

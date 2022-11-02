@@ -22,5 +22,12 @@ namespace WebApp.ViewModels.System.Users
         [Display(Name = "Số điện thoại")]
         public string PhoneNumber { get; set; }
 
+        public string UserName { get; set; }
+
+        [Display(Name = "Mật khẩu")]
+        public string Password { get; set; }
+
+        [Display(Name = "Xác nhận mật khẩu")]
+        public string ConfirmPassword { get; set; }
     }
 }

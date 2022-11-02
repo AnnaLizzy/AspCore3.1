@@ -39,7 +39,11 @@ namespace WebApp.AdminApp.Controllers
                 return View(ModelState);
 
             var token = await _userApiClient.Authenticate(request);
-
+            if(token.ResultObj == null)
+            {
+                ModelState.AddModelError("",token.Message);
+                return View();
+            }
             var userPrincipal = this.ValidateToken(token.ResultObj);
             var authProperties = new AuthenticationProperties
             {

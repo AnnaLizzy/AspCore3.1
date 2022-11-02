@@ -12,5 +12,6 @@ namespace WebApp.AdminApp.Models.Services
         Task<ApiResult<bool>> RegisterUser(RegisterRequest request);
         Task<ApiResult<bool>> UpdateUser(Guid id, UserUpdateRequest request);
         Task<ApiResult<UserVM>> GetById(Guid id);
+        Task<ApiResult<bool>> DeleteUser(Guid id);
     }
 }

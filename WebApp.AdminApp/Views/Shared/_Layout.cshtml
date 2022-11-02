@@ -16,6 +16,8 @@
 
     <!-- Custom styles for this template-->
     <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="~/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -28,7 +30,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" >
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Home" asp-action="Index" >
                 <div class="sidebar-brand-icon ">
                     <i class="fas fa-house-user"></i>
                 </div>
@@ -40,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Trang chủ</span>
                 </a>
@@ -266,7 +268,7 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    @User.Identity.Name
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -295,12 +297,13 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Quản lý hệ thống</h1>
+                        @*h1 class="h3 mb-0 text-gray-800"></h1>*@
+                        
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
-                   @RenderBody();
+                   @RenderBody()
 
                 </div>
                 <!-- /.container-fluid -->
@@ -335,12 +338,12 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc là muốn đăng xuất không ?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn đăng xuất không ?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                @*<div class="modal-body">Dẫu sao cuộc đời còn tươi đẹp, suy nghĩ lại đi</div>*@
+             
                 <div class="modal-footer">
                     <form method="post" asp-controller="User" asp-action="Logout">
                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy bỏ</button>
@@ -360,13 +363,13 @@
 
     <!-- Custom scripts for all pages-->
     <script src="~/js/sb-admin-2.min.js"></script>
-
     <!-- Page level plugins -->
-   @* <script src="~/vendor/chart.js/Chart.min.js"></script>*@
+    <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    @*<script src="~/js/demo/chart-area-demo.js"></script>
-    <script src="~/js/demo/chart-pie-demo.js"></script>*@
+    @*<script src="~/js/demo/datatables-demo.js"></script>*@
+    
     @RenderSection("Scripts", required:false)
 </body>
 
