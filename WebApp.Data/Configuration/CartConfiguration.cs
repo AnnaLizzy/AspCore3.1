@@ -18,6 +18,7 @@ namespace WebApp.Data.Configuration
 
             builder.HasOne(x => x.AppUser).WithMany(x => x.Carts)
                 .HasForeignKey(x => x.UserId);
+            builder.Property(x => x.Price).HasColumnType("demical(5,3)");
         }
     }
 }

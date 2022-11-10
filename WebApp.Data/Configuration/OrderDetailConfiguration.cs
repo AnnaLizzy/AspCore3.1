@@ -17,6 +17,7 @@ namespace WebApp.Data.Configuration
 
             builder.HasOne(x => x.Product).WithMany(x => x.OrderDetails)
                 .HasForeignKey(x => x.ProductId);
+            builder.Property(x => x.Price).HasColumnType("demical(5,3)");
         }
     }
 }

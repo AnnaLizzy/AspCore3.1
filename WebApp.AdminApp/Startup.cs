@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using WebApp.AdminApp.Models.Services;
+using WebApp.AdminApp.Services;
 using WebApp.ViewModels.System.Users;
 
 namespace WebApp.AdminApp
@@ -47,8 +48,10 @@ namespace WebApp.AdminApp
             // kiem tra nhap lieu
             services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
-
+            //DI
             services.AddTransient<IUserApiClient, UserApiClient>();
+            services.AddTransient<IRoleApiClient, RoleApiClient>();
+            services.AddTransient<ILanguageApiClient, LanguageApiClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

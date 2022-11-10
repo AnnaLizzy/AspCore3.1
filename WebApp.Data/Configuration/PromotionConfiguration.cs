@@ -12,6 +12,8 @@ namespace WebApp.Data.Configuration
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.Name).IsRequired();
+            builder.Property(x => x.DiscountPercent).HasColumnType("demical(5,3)");
+            builder.Property(x => x.DiscountAmount).HasColumnType("demical(5,3)");
         }
     }
 }

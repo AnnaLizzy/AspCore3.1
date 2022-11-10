@@ -13,7 +13,7 @@ namespace WebApp.Applications.System.User
         Task<ApiResult<bool>> Update(Guid id, UserUpdateRequest request);
         Task<ApiResult<PageResult<UserVM>>> GetUserPaging(GetUserPagingRequest request);
         Task<ApiResult<UserVM>> GetById(Guid id);
-
         Task<ApiResult<bool>> Delete(Guid id);
+        Task<ApiResult<bool>> RoleAssign(Guid id,RoleAssignRequest request);
     }
 }

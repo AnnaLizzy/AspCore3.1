@@ -1,16 +1,26 @@
 ﻿@model WebApp.ViewModels.System.Users.UserVM
 
 @{
-    ViewData["Title"] = "Chi tiết";
+    ViewData["Title"] = "Chi tiết người dùng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container-fluid text-gray-900">
-
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Chi tiết người dùng</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+        </a>
+    </div>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+        <li class="breadcrumb-item active">Chi tiết người dùng</li>
+    </ol>
     
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h1 class="h3 mb-0 justify-content-center text-gray-900">Chi tiết</h1>
+            <h1 class="h3 mb-0 justify-content-center text-gray-900">Chi tiết người dùng</h1>
         </div>
         <div class="card-body">
             <div class="col-md-12">

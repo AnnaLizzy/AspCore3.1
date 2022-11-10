@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebApp.AdminApp\WebApp.AdminApp.csproj" />
     <ProjectReference Include="..\WebApp.Data\WebApp.Data.csproj" />
     <ProjectReference Include="..\WebApp.Utilities\WebApp.Utilities.csproj" />
     <ProjectReference Include="..\WebApp.ViewModels\WebApp.ViewModels.csproj" />

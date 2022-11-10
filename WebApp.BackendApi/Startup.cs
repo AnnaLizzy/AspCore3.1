@@ -13,6 +13,8 @@ using Microsoft.OpenApi.Models;
 using System.Collections.Generic;
 using WebApp.Applications.Catalog.Products;
 using WebApp.Applications.Common;
+using WebApp.Applications.System.Languages;
+using WebApp.Applications.System.Roles;
 using WebApp.Applications.System.User;
 using WebApp.Data.EF;
 using WebApp.Data.Entities;
@@ -42,15 +44,22 @@ namespace WebApp.BackendApi
             services.AddIdentity<AppUser, AppRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
-            //Declare DI 
+            //Declare DI đăng kí dịch vụ
             services.AddTransient<IStorageService, FileStorageService>();
 
             services.AddTransient<IProductService, ProductService>();
+
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+
             services.AddTransient<IUserService, UserService>();
 
+            services.AddTransient<IRoleService, RoleService>();
+
+            services.AddTransient<ILanguagesService, LanguagesService>();
             //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator >();
             //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
 

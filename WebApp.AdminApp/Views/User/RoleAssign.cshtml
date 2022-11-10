@@ -1,0 +1,47 @@
+﻿@model WebApp.ViewModels.System.Users.RoleAssignRequest
+
+@{
+    ViewData["Title"] = "Phân quyền";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Gán quyền người dùng</h1>
+</div>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+    <li class="breadcrumb-item active">Gán quyền</li>
+</ol>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RoleAssign">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            @for (var i = 0; i < Model.Roles.Count; i++)
+            {
+                <div class="form-group">
+                    <label class="control-label">
+                        @Model.Roles[i].Name
+                        <input type="checkbox" asp-for="Roles[i].Selected"  />
+                        <input type="hidden" asp-for="Roles[i].Id"/>
+                        <input type="hidden" asp-for="Roles[i].Name"/>
+                    </label>
+                    
+                </div>
+            }           
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="User" class="btn btn-primary ">
+        <span class="icon text-white-50">
+            <i class="fas fa-chevron-left"></i>
+        </span>
+        <span class="text">Quay về </span>
+    </a>
+</div>

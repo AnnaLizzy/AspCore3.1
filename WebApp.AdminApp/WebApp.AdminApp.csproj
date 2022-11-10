@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebApp.Utilities\WebApp.Utilities.csproj" />
     <ProjectReference Include="..\WebApp.ViewModels\WebApp.ViewModels.csproj" />
   </ItemGroup>
 

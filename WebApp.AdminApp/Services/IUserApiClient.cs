@@ -13,5 +13,6 @@ namespace WebApp.AdminApp.Models.Services
         Task<ApiResult<bool>> UpdateUser(Guid id, UserUpdateRequest request);
         Task<ApiResult<UserVM>> GetById(Guid id);
         Task<ApiResult<bool>> DeleteUser(Guid id);
+        Task<ApiResult<bool>> RoleAssign (Guid id, RoleAssignRequest request);
     }
 }

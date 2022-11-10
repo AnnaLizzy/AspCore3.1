@@ -12,12 +12,15 @@
         },2000);
     </script>
 }
-
-<div class="container-fluid">
-
-
-    <h1 class=" mt-4 text-gray-800">Danh sách người dùng</h1>
     
+<div class="container-fluid">
+     <!-- Page Heading -->
+     <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Danh sách người dùng</h1>                        
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+            </a>
+     </div>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
         <li class="breadcrumb-item active">Danh sách người dùng</li>
@@ -26,7 +29,7 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
            <div class="row">
-              <div class="col-md-4 col-xl-12">
+              <div class="col-md-4 col-xl-2">
                 <a asp-controller="User" asp-action="CreateUser" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-user-plus"></i>
@@ -34,12 +37,14 @@
                     <span class="text">Thêm mới</span>
                 </a>
               </div>
-              <div class=" col-xl-12">
-                <form class="form-inline m-1 "  method="get" asp-action="Index" >      
-                    <div class="row">
+              <div class="col-6">
 
-                            <input type="text" name="Keyword" class="form-control mr-sm-3 " value="@ViewBag.Keyword" placeholder="Tìm kiếm" />
-                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search fa-sm"></i></button>   
+              </div>
+              <div class="row justify-content-end">
+                <form class="form-inline m-1"  method="get" asp-action="Index" >
+                    <div class="col-md-4 col-xl-12">
+                         <input type="text" name="Keyword" class="form-control mr-sm-3 " value="@ViewBag.Keyword" placeholder="Tìm kiếm" />
+                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search fa-sm"></i></button>   
                     </div>
                 </form>
               </div>
@@ -95,7 +100,8 @@
                                 <td>
                                     @Html.ActionLink("Sửa", "Edit", new {  id=item.Id }) |
                                     @Html.ActionLink("Chi tiết", "Details", new {  id=item.Id }) |
-                                    @Html.ActionLink("Xóa", "Delete", new {  id=item.Id })
+                                    @Html.ActionLink("Xóa", "Delete", new {  id=item.Id }) |
+                                    @Html.ActionLink("Gán quyền","RoleAssign", new {  id=item.Id })
                                 </td>
                             </tr>
                         }
