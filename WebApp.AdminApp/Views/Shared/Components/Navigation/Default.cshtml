@@ -68,7 +68,7 @@
                     </div>
                     <div>
                         <div class="font-weight-bold ">December 12, 2022</div>
-                        <span class="small text-gray-900">Website tối ưu cho trình duyệt máy tính</span>
+                        <span class="small text-gray-900">Website tối ưu trên trình duyệt máy tính</span>
                     </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -96,7 +96,8 @@
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
             </div>
         </li>
-        <form method="post" id="frmChangeLanguage" action="/Home/Language" class="d-none d-sm-inline-block form-inline mr-0 ml-0 my-3 navbar-search">
+        <form method="post" id="frmChangeLanguage" action="/Home/Language"
+              class="d-sm-inline-block navbar-brand my-2">
             <div class="input-group">
                 <select type="text" onchange="" class="form-control bg-light border-0 small" asp-for="CurrentLanguageId"
                 asp-items="@(new SelectList(Model.Languages,"Id","Name",Model.CurrentLanguageId))"></select>

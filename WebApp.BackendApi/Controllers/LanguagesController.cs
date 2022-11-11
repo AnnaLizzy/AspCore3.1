@@ -15,7 +15,7 @@ namespace WebApp.BackendApi.Controllers
             _languagesService = languagesService;
         }
        
-        [HttpGet("{languageId}")]
+        [HttpGet()]
         public async Task<IActionResult> GetAll()
         {
             var products = await _languagesService.GetAll();

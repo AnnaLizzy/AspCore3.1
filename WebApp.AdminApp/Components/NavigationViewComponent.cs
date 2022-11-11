@@ -16,7 +16,7 @@ namespace WebApp.AdminApp.Components
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var language = await _languageApiClient.GetAll();//null
+            var language = await _languageApiClient.GetAll();//null fix url
             var navigation = new NavigationViewModel()
             {
                 CurrentLanguageId = HttpContext

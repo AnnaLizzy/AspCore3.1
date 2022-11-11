@@ -16,7 +16,7 @@ namespace WebApp.AdminApp.Services
         }
         public async Task<ApiResult<List<LanguageVm>>> GetAll()
         {
-            return await GetAsync<ApiResult<List<LanguageVm>>>("/api/language");
+            return await GetAsync<ApiResult<List<LanguageVm>>>("/api/languages");
         }
     }
 }
