@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Net.Http;
 using System;
@@ -13,14 +14,17 @@ namespace WebApp.AdminApp.Services
 {
     public class ProductApiClient : BaseApiClient, IProductApiClient
     {
+
         public ProductApiClient(IHttpClientFactory httpClientFactory, IConfiguration configuration,
             IHttpContextAccessor httpContextAccessor) : base(httpClientFactory,configuration, httpContextAccessor)
         {     
         }
-        public async Task<ApiResult<PageResult<ProductViewModel>>> GetPagings(GetManageProductPagingRequest request)
+        public async Task<PageResult<ProductViewModel>> GetPagings(GetManageProductPagingRequest request)
         {
-           var data = await base.GetAsync<ApiResult<PageResult<ProductViewModel>>>($"/api/user/paging?PageIndex=" +
-                $"{request.PageIndex}&PageSize={request.PageSize}&Keyword={request.Keyword}");
+           var data = await base.GetAsync<PageResult<ProductViewModel>>(
+               $"/api/product/paging?PageIndex={request.PageIndex}" + $"&PageSize={request.PageSize}" +
+                $"&Keyword={request.Keyword}" +
+                $"&languageid={request.LanguageId}");
            
             return data;
         }

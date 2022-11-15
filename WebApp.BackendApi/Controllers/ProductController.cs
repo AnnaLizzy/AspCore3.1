@@ -20,7 +20,7 @@ namespace WebApp.BackendApi.Controllers
             _productService = productService;
         }
         
-        [HttpGet("{languageId}")]
+        [HttpGet("{paging}")]
         public async Task<IActionResult> GetAllPaging( [FromQuery] GetManageProductPagingRequest request)
         {
             var products = await _productService.GetAllPaging(request);

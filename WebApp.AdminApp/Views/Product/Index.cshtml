@@ -5,7 +5,7 @@
 }
 
 @using WebApp.ViewModels.Common
-@model PageResult<WebApp.ViewModels.System.Users.UserVM>
+@model PageResult<WebApp.ViewModels.Catalog.Products.ProductViewModel>
 
 @{
     ViewData["Title"] = "Quản lý sản phẩm";
@@ -36,7 +36,7 @@
             <div class="card-header py-3">
                 <div class="row">
                     <div class="col-md-4 col-xl-2">
-                        <a asp-controller="User" asp-action="CreateUser" class="btn btn-primary btn-icon-split">
+                        <a asp-controller="Product" asp-action="CreateUser" class="btn btn-primary btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-user-plus"></i>
                             </span>
@@ -67,20 +67,20 @@
                     <thead>
                         <tr>
                             <th>
+                                Mã sản phẩm
+                            </th>
+                            <th>
                                 Tên
                             </th>
                             <th>
-                                Họ
+                                Giá nhập
                             </th>
                             <th>
-                                Sđt
+                                Giá bán
                             </th>
                             <th>
-                                Username
-                            </th>
-                            <th>
-                                Email
-                            </th>
+                                Số lượng tồn
+                            </th>                            
                             <th></th>
                         </tr>
                     </thead>
@@ -89,25 +89,24 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                    @Html.DisplayFor(modelItem => item.Id)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.LastName)
+                                    @Html.DisplayFor(modelItem => item.Name)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                    @Html.DisplayFor(modelItem => item.OriginPrice)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.UserName)
+                                    @Html.DisplayFor(modelItem => item.Price)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Email)
-                                </td>
+                                    @Html.DisplayFor(modelItem => item.Stock)
+                                </td>                               
                                 <td>
                                     @Html.ActionLink("Sửa", "Edit", new {  id=item.Id }) |
                                     @Html.ActionLink("Chi tiết", "Details", new {  id=item.Id }) |
-                                    @Html.ActionLink("Xóa", "Delete", new {  id=item.Id }) |
-                                    @Html.ActionLink("Gán quyền","RoleAssign", new {  id=item.Id })
+                                    @Html.ActionLink("Xóa", "Delete", new {  id=item.Id })                                    
                                 </td>
                             </tr>
                         }
