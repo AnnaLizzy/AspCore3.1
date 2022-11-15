@@ -37,15 +37,19 @@ namespace WebApp.AdminApp.Controllers
         public async Task<IActionResult> Index(LoginRequest request)
         {
             if (!ModelState.IsValid)
-                return View(ModelState);
+                return View();
+           
 
             var token = await _userApiClient.Authenticate(request);
-            if(token.ResultObj == null)
+
+            if (token.ResultObj == null)
             {
-                ModelState.AddModelError("",token.Message);
+                ModelState.AddModelError("", token.Message);
                 return View();
             }
-            var userPrincipal = this.ValidateToken(token.ResultObj);
+           
+
+            var userPrincipal = ValidateToken(token.ResultObj);
             var authProperties = new AuthenticationProperties
             {
                 ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),

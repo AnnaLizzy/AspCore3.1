@@ -38,7 +38,7 @@ namespace WebApp.AdminApp
             services.AddDistributedMemoryCache();           // Đăng ký dịch vụ lưu cache trong bộ nhớ (Session sẽ sử dụng nó)
             services.AddSession(cfg =>
             {                    // Đăng ký dịch vụ Session
-                //cfg.Cookie.Name = "Test";             // Đặt tên Session - tên này sử dụng ở Browser (Cookie)
+                cfg.Cookie.Name = "Test";             // Đặt tên Session - tên này sử dụng ở Browser (Cookie)
                 cfg.IdleTimeout = TimeSpan.FromMinutes(30);    // Thời gian tồn tại của Session
             });
 
@@ -52,6 +52,7 @@ namespace WebApp.AdminApp
             services.AddTransient<IUserApiClient, UserApiClient>();
             services.AddTransient<IRoleApiClient, RoleApiClient>();
             services.AddTransient<ILanguageApiClient, LanguageApiClient>();
+            services.AddTransient<IProductApiClient, ProductApiClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

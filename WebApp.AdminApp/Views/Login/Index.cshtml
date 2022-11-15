@@ -3,11 +3,14 @@
 @{
     Layout =null;
 }
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,23 +51,26 @@
                                     </div>
                                     <form class="user" asp-action="Index" asp-controller="Login" method="post">
 
-                                        <div asp-validation-summary="All" class="text-danger"></div>
-
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                   asp-for="UserName"
-                                                   placeholder="Username">
+                                                   asp-for="UserName"  placeholder="Username">
+                                            <span asp-validation-for="UserName" class="text-danger"></span>
+                                           
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                    asp-for="Password" placeholder="Password">
-                                        </div>
+                                            <span asp-validation-for="Password" class="text-danger">                                             
+                                        </span>
+                                          
+                                          </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck" asp-for="RememberMe">
                                                 <label class="custom-control-label" for="customCheck">
-                                                    Remember
-                                                    Me
+                                                    Remember Me
                                                 </label>
                                             </div>
                                         </div>
@@ -100,7 +106,13 @@
 
     <!-- Custom scripts for all pages-->
     <script src="~/js/sb-admin-2.min.js"></script>
-
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+         }
+       
+    }
 </body>
 
 </html>
+

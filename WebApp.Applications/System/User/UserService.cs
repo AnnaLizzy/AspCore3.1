@@ -32,7 +32,8 @@ namespace WebApp.Applications.System.User
         }
         public async Task<ApiResult<string>> Authencate(LoginRequest request)
         {
-            var user = await _userManager.FindByNameAsync(request.UserName);
+            
+            var user = await _userManager.FindByNameAsync(request.UserName);           
             if (user == null)
                 return new ApiErrorResult<string>("Tài khoản không tồn tại");
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);

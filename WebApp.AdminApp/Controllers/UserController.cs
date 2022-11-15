@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Logging;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using WebApp.AdminApp.Models.Services;
 using WebApp.AdminApp.Services;
@@ -35,6 +33,7 @@ namespace WebApp.AdminApp.Controllers
                 PageIndex = pageIndex
             };
             var data = await _userApiClient.GetUserPagings(request);
+            
             ViewBag.Keyword = keyword;
             if (TempData["result"] != null)
             {

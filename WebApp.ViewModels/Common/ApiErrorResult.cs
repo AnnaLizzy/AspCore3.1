@@ -17,7 +17,10 @@
         }
         public ApiErrorResult()
         {
-
+            IsSuccessed=false;
+         
         }
+     
+      
     }
 }
