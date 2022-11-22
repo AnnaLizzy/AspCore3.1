@@ -7,5 +7,6 @@ namespace WebApp.AdminApp.Services
     public interface IProductApiClient
     {
         Task<PageResult<ProductViewModel>> GetPagings(GetManageProductPagingRequest request);
+        Task<bool> Create(ProductCreateRequest request);
     }
 }

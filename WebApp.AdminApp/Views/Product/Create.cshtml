@@ -1,0 +1,84 @@
+﻿@model WebApp.ViewModels.Catalog.Products.ProductCreateRequest
+
+@{
+    ViewData["Title"] = "Tạo mới sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OriginPrice" class="control-label"></label>
+                <input asp-for="OriginPrice" class="form-control" />
+                <span asp-validation-for="OriginPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stock" class="control-label"></label>
+                <input asp-for="Stock" class="form-control" />
+                <span asp-validation-for="Stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Details" class="control-label"></label>
+                <input asp-for="Details" class="form-control" />
+                <span asp-validation-for="Details" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeoDecreption" class="control-label"></label>
+                <input asp-for="SeoDecreption" class="form-control" />
+                <span asp-validation-for="SeoDecreption" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeoAlias" class="control-label"></label>
+                <input asp-for="SeoAlias" class="form-control" />
+                <span asp-validation-for="SeoAlias" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeoTitle" class="control-label"></label>
+                <input asp-for="SeoTitle" class="form-control" />
+                <span asp-validation-for="SeoTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LangugeId" class="control-label"></label>
+                <input asp-for="LangugeId" class="form-control" />
+                <span asp-validation-for="LangugeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThumbnailImage" class="control-label"></label>
+                <input asp-for="ThumbnailImage" class="form-control" />
+                <span asp-validation-for="ThumbnailImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,48 +1,171 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApplication.WebApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Website Security</title>
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap CSS Style -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+
+    <!-- Template CSS Style -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+    <!-- Animate CSS  -->
+    <link rel="stylesheet" href="~/assets/css/animate.css">
+
+    <!-- FontAwesome 4.3.0 Icons  -->
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/source/fontawesome-free-6.2.0-web/css/fontawesome.css">
+    <link rel="stylesheet" href="~/source/fontawesome-free-6.2.0-web/css/brands.css">
+    <link rel="stylesheet" href="~/source/fontawesome-free-6.2.0-web/css/solid.css">
+
+    <!-- et line font  -->
+    <link rel="stylesheet" href="~/assets/css/et-line-font/style.css">
+
+    <!-- BXslider CSS  -->
+    <link rel="stylesheet" href="~/assets/css/bxslider/jquery.bxslider.css">
+
+    <!-- Owl Carousel CSS Style -->
+    <link rel="stylesheet" href="~/assets/css/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="~/assets/css/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="~/assets/css/owl-carousel/owl.transitions.css">
+
+    <!-- Magnific-Popup CSS Style -->
+    <link rel="stylesheet" href="~/assets/css/magnific-popup/magnific-popup.css">
+
+
+
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebApplication.WebApp</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    <!-- Preload the Whole Page -->
+    <div id="preloader">
+        <div id="loading-animation">&nbsp;</div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - WebApplication.WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+    
+    <partial name="_Navbar" />
+
+
+    <div id="wrapper">
+
+        <partial name="_Infor" />
+
+        @RenderBody()
+     
+
+        <!-- Subscribe-section
+        ================================================== -->
+        <section>
+            <div id="subscribe-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+                            <div class="newsletter-title text-center">
+                                <h4>Stay informed with our newsletter</h4>
+                            </div> <!-- end newsletter-title -->
+                            <form class="form-inline subscription-form mailchimp" id="subscribeform">
+                                <!-- Subscription messages -->
+                                <h5 class="subscription-success"></h5>
+                                <h5 class="subscription-error"></h5>
+                                <!-- Email input -->
+                                <div class="form-group newsletter-field">
+                                    <input type="email" name="EMAIL" class="form-control" id="subscriber-email"
+                                           placeholder="jane@example.com">
+                                </div>
+                                <!-- Subscribe button -->
+                                <button type="submit" id="subscribe-button" class="btn btn-sm btn-dark">Subscribe</button>
+                            </form>
+                        </div> <!-- end col-sm-6 -->
+                    </div> <!-- end row -->
+                </div> <!-- end container -->
+            </div> <!-- end subscribe-section -->
+        </section>
+        <!-- End subscribe section -->
+
+        <section>
+            <div class="sep-section"></div>
+        </section>
+
+
+
+        <section>
+            <div class="sep-section"></div>
+        </section>
+
+        <!-- Contact-info
+        ================================================== -->
+        <section>
+            <div class="contact-info">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="tel:+123000456"><i class="pe-7s-phone"></i>EXT:535+27299</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="mailto:hello@hotmail.com"><i class="pe-7s-mail"></i>system-attwvn@mail.foxconn.com</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="tel:+123000456"><i class="pe-7s-phone"></i>EXT:535+20770</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <partial name="_Footer" />
+
+    </div> <!-- End wrapper -->
+    <!-- Back-to-top
+    ================================================== -->
+    <div class="back-to-top">
+        <i class="fa fa-angle-up fa-3x"></i>
+    </div> 
+    <!-- end back-to-top -->
+
+
+
+    <!--------------dark mode-------------------->
+    <script src="~/assets/darkmode/darkmode-js.js"></script>
+
+        <script>
+            new Darkmode({
+                bottom: '20px',
+                right: '25px',
+                time: '0.5s',
+                label: '🌓'
+            }).showWidget();
+        </script>
+    
+    
+
+    <!-- JS libraries and scripts -->
+    <script src="~/assets/js/jquery-1.11.3.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="~/assets/js/jquery.appear.min.js"></script>
+    <script src="~/assets/js/jquery.bxslider.min.js"></script>
+    <script src="~/assets/js/jquery.owl.carousel.min.js"></script>
+    <script src="~/assets/js/jquery.countTo.js"></script>
+    <script src="~/assets/js/jquery.easing.1.3.js"></script>
+    <script src="~/assets/js/jquery.imagesloaded.min.js"></script>
+    <script src="~/assets/js/jquery.isotope.js"></script>
+    <script src="~/assets/js/jquery.placeholder.js"></script>
+    <script src="~/assets/js/jquery.stellar.min.js"></script>
+    <script src="~/assets/js/jquery.waypoints.js"></script>
+    <script src="~/assets/js/jquery.fitvids.js"></script>
+    <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/assets/js/jquery.countdown.js"></script>
+    <script src="~/assets/js/jquery.navbar-scroll.js"></script>
+    <script src="~/assets/js/main.js"></script>
+   
 </body>
+
 </html>

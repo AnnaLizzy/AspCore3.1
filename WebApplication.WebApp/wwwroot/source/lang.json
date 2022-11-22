@@ -1,0 +1,14 @@
+{
+    "en":{
+        "section-scroll" : "Home",
+        "dropdown-toggle" :"About",
+        "checkRole": "Check Role",
+        "checkFile" : "Check File"
+    },
+    "vn":{
+        "section-scroll":"Trang chủ",
+        "dropdown-toggle" :"Thông tin",
+        "checkRole": "Kiểm tra quyền hạn",
+        "checkFile":"Kiểm tra đơn"
+    }
+}
