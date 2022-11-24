@@ -64,12 +64,12 @@ namespace WebApp.AdminApp.Services
                 requestContent.Add(new StringContent(request.Description.ToString()), "description");
 
                 requestContent.Add(new StringContent(request.Details.ToString()), "details");
-                requestContent.Add(new StringContent(request.SeoDecreption.ToString()), "seoDescription");//null
+                requestContent.Add(new StringContent(request.SeoDecreption.ToString()), "seoDescription");
                 requestContent.Add(new StringContent(request.SeoTitle.ToString()), "seoTitle");
                 requestContent.Add(new StringContent(request.SeoAlias.ToString()), "seoAlias");
                 requestContent.Add(new StringContent(languageId), "languageId");
 
-                var response = await client.PostAsync($"/api/product/", requestContent);//500
+                var response = await client.PostAsync($"/api/product/",requestContent);
                 return response.IsSuccessStatusCode;
             }
         }

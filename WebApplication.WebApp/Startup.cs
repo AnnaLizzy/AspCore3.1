@@ -7,6 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using WebApplication.WebApp.Data;
+using LazZiya.ExpressLocalization;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
+using WebApplication.WebApp.LocalizationResources;
 
 namespace WebApplication.WebApp
 {
@@ -22,11 +26,31 @@ namespace WebApplication.WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var cultures = new[]
+            {
+                new CultureInfo("vi"),
+                new CultureInfo("en"),
+    
+            };
+
+            services.AddControllersWithViews()
+                .AddExpressLocalization<ExpressLocalizationResource,ViewLocalizationResource>(
+                ops =>
+                {
+                    ops.ResourcesPath = "LocalizationResources";
+                    ops.RequestLocalizationOptions = o =>
+                    {
+                        o.SupportedCultures = cultures;
+                        o.SupportedUICultures = cultures;
+                        o.DefaultRequestCulture = new RequestCulture("vi");
+                    };
+                });
+            
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("WebtestDb"));
             });
-            services.AddControllersWithViews();
+            
             services.AddRazorPages(options =>
             {
                 options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "/login");
@@ -76,13 +100,15 @@ namespace WebApplication.WebApp
 
             app.UseRouting();
 
+            app.UseRequestLocalization();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{culture=vi}/{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

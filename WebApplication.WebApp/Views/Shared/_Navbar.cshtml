@@ -1,4 +1,8 @@
-﻿<!-- Navbar -->
+﻿@{
+    var Culture = CultureInfo.CurrentCulture.Name;
+}
+
+<!-- Navbar -->
 <header class="header">
     <nav class="navbar navbar-default navbar-static-top ">
         <div class="container">
@@ -15,33 +19,35 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navigation-nav">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a class="section-scroll" href="#wrapper">Trang chủ</a></li>
+                    <li class="active"><a class="section-scroll" href="#wrapper"><localize>Trang chủ</localize></a></li>
                     <li class="dropdown">
-                        <a class=" dropdown-toggle" role="button" data-toggle="dropdown" href="#">Thông tin</a>
+                        <a class=" dropdown-toggle" role="button" data-toggle="dropdown" href="#" localize-content>Thông tin</a>
                         <ul class="dropdown-menu" style="right: auto;">
-                            <li><a class="checkRole" href="#">Kiểm tra quyền hạn</a></li>
-                            <li><a class="checkFile" href="#">Kiểm tra đơn</a></li>
-                            <li><a class="checkId" href="#">Kiểm tra tiến độ làm thẻ</a></li>
+                            <li><a class="checkRole" href="#" localize-content>Kiểm tra quyền hạn</a></li>
+                            <li><a class="checkFile" href="#"> </a></li>
+                            <li><a class="checkId" href="#" >Kiểm tra tiến độ làm thẻ</a></li>
                             <li>
-                                <hr class="dropdown-divider">
-                                </hr>
+                                <hr class="dropdown-divider">                                
                             </li>
-                            <li><a class="dropdown-item" href="#">Kiểm tra đơn môi trường</a></li>
+                            <li><a class="dropdown-item" href="#" loca>Kiểm tra đơn môi trường</a></li>
                         </ul>
                     </li>
-                    <li><a href="#features-section">Trợ giúp</a></li>
-                    <li><a href="#screenshots-section">Quản lý hàng ra vào</a></li>
-                    <li><a href="contact.html">Liên hệ</a></li>
-                    <li><a data-toggle="model" href="login.html">Đăng nhập</a></li>
+                    <li><a href="#features-section" localize-content>Trợ giúp</a></li>
+                    <li><a href="#screenshots-section" localize-content>Quản lý hàng ra vào</a></li>
+                    <li><a href="contact.html" localize-content>Liên hệ</a></li>
+                    <li><a data-toggle="model" href="login.html">Đăng nhập</a></li> 
                     <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                       @*<a href="vi/Home/SetCultureCookie?cltr=vi&returnUrl=/vi" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="~/assets/images/Flags/VN.png" />
-                            VN
+                            Việt Nam
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu" style="right: auto;">
-                            <li class="dropdown-item"><a href="#"><img src="~/assets/images/Flags/CN.png" />&nbsp CN</a></li>
-                        </ul>
+                            <li class="dropdown-item"><a href="href=" vi hreflang="en/Home/SetCultureCookie?cltr=en&returnUrl=/en"><img src="~/assets/images/Flags/US.png"/>English</a></li>
+                        </ul>*@
+                        <language-nav language-label="NativeName" view-context="ViewContext"
+                                      cookie-handler-url="@(Url.Action("SetCultureCookie", "Home", new { area= "", cltr="{0}", returnUrl="{1}" }))">
+                        </language-nav>
                     </li>
                 </ul>
             </div>

@@ -34,7 +34,9 @@ namespace WebApp.BackendApi.Controllers
                 return BadRequest("Khong tim thay ma san pham");
             return Ok(product);
         }
+
         [HttpPost]
+        [Consumes("multipart/form-data")]
         public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
         {
             if (!ModelState.IsValid)

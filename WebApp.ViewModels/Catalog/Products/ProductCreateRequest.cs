@@ -12,7 +12,7 @@ namespace WebApp.ViewModels.Catalog.Products
         [Display(Name = "Giá bán")]
         [Required(ErrorMessage = "Nhập giá bán")]
         public decimal Price { set; get; }
-
+        [Display(Name = "Tồn kho")]
         public int Stock { set; get; }
 
         [Required(ErrorMessage = "Bạn phải nhập tên sản phẩm")]
