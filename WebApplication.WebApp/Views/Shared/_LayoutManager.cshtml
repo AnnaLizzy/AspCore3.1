@@ -1,0 +1,47 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title localize-content>An toàn</title>
+
+    <partial name="_ThemeStyles" />
+
+
+</head>
+
+<body>
+    <partial name="_Navbar" />
+
+
+    <div id="wrapper">
+        <div class="row ">
+            <div class="col-md-3">
+                <ul class="nav nar-tabs">
+                    <li><a class="nav-item active" href="/profile">QUẢN LÝ NGƯỜI DÙNG</a></li>
+                    <li><a class="nav-item" href="/email" localize-content>EMAIL</a></li>
+                    <li><a class="nav-item" href="#" localize-content>Kiểm tra quyền hạn</a></li>
+                    <li><a class="nav-item" href="#"> Two-factor authentication</a></li>
+                    <li><a class="nav-item" href="/PersonData" localize-content>DỮ LIỆU CÁ NHÂN</a></li>
+                    <li><a class="nav-item" href="#"> TEST</a></li>
+                    <li><a class="nav-item" href="#" localize-content>Email</a></li>
+                    <li>
+                        <a class="nav-item" href="#" localize-content>Email</a>
+                    </li>
+                    <li><a class="nav-item nav-link active" href="/Changepassword" localize-content>Đổi mật khẩu</a></li>
+                </ul>
+            </div>
+            @RenderBody()
+        </div>
+        <partial name="_Footer" />
+
+    </div> 
+    <partial name="_ThemeScripts" />
+    @RenderSection("Scripts", required:false)
+</body>
+
+</html>

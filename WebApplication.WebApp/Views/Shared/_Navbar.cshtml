@@ -22,34 +22,30 @@
                     <li class="active"><a class="section-scroll" href="#wrapper"><localize>Trang chủ</localize></a></li>
                     <li class="dropdown">
                         <a class=" dropdown-toggle" role="button" data-toggle="dropdown" href="#" localize-content>Thông tin</a>
-                        <ul class="dropdown-menu" style="right: auto;">
+                        <ul class="dropdown-menu" style="right:auto;">
                             <li><a class="checkRole" href="#" localize-content>Kiểm tra quyền hạn</a></li>
                             <li><a class="checkFile" href="#"> </a></li>
-                            <li><a class="checkId" href="#" >Kiểm tra tiến độ làm thẻ</a></li>
+                            <li><a class="checkId" href="#" localize-content>Kiểm tra tiến độ làm thẻ</a></li>
+                            <li><a class="checkId" href="#" localize-content>Kiểm tra đơn môi trường</a></li>
                             <li>
-                                <hr class="dropdown-divider">                                
+                                <hr class="dropdown-divider">                               
                             </li>
-                            <li><a class="dropdown-item" href="#" loca>Kiểm tra đơn môi trường</a></li>
+                            <li><a class="dropdown-item" href="#" localize-content>Trung tâm quản lý</a></li>
                         </ul>
                     </li>
                     <li><a href="#features-section" localize-content>Trợ giúp</a></li>
                     <li><a href="#screenshots-section" localize-content>Quản lý hàng ra vào</a></li>
                     <li><a href="contact.html" localize-content>Liên hệ</a></li>
-                    <li><a data-toggle="model" href="login.html">Đăng nhập</a></li> 
-                    <li class="dropdown">
-                       @*<a href="vi/Home/SetCultureCookie?cltr=vi&returnUrl=/vi" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="~/assets/images/Flags/VN.png" />
-                            Việt Nam
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu" style="right: auto;">
-                            <li class="dropdown-item"><a href="href=" vi hreflang="en/Home/SetCultureCookie?cltr=en&returnUrl=/en"><img src="~/assets/images/Flags/US.png"/>English</a></li>
-                        </ul>*@
-                        <language-nav language-label="NativeName" view-context="ViewContext"
+                  
+                    <partial name="_LoginPartial" />
+                    <li class="dropdown" style="padding-top:10px; text-transform:uppercase ;">
+                      
+                        <language-nav language-label="NativeName" view-context="ViewContext" 
                                       cookie-handler-url="@(Url.Action("SetCultureCookie", "Home", new { area= "", cltr="{0}", returnUrl="{1}" }))">
                         </language-nav>
                     </li>
                 </ul>
+          
             </div>
         </div>
     </nav>

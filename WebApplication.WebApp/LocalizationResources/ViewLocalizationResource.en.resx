@@ -121,8 +121,24 @@
     <value>Check </value>
     <comment>Navbar</comment>
   </data>
+  <data name="Kiểm tra tiến độ làm thẻ" xml:space="preserve">
+    <value>Check card making progress</value>
+    <comment>Navbar</comment>
+  </data>
   <data name="Kiểm tra đơn" xml:space="preserve">
     <value>Check Applications</value>
+    <comment>Navbar</comment>
+  </data>
+  <data name="Kiểm tra đơn môi trường" xml:space="preserve">
+    <value>Check environment Form</value>
+    <comment>Navbar</comment>
+  </data>
+  <data name="Liên hệ" xml:space="preserve">
+    <value>Contact us</value>
+    <comment>Navbar</comment>
+  </data>
+  <data name="Quản lý hàng ra vào" xml:space="preserve">
+    <value>Manage Goods</value>
     <comment>Navbar</comment>
   </data>
   <data name="Thông tin" xml:space="preserve">
@@ -131,6 +147,14 @@
   </data>
   <data name="Trang chủ" xml:space="preserve">
     <value>Home</value>
+    <comment>Navbar</comment>
+  </data>
+  <data name="Trợ giúp" xml:space="preserve">
+    <value>Help</value>
+    <comment>Navbar</comment>
+  </data>
+  <data name="Đăng nhập" xml:space="preserve">
+    <value>Login</value>
     <comment>Navbar</comment>
   </data>
 </root>

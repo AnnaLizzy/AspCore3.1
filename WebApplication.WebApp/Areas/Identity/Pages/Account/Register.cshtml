@@ -1,0 +1,168 @@
+﻿@page "/register/"
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h4>Create a new account.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.ID"></label>
+                <input asp-for="Input.ID" class="form-control" />
+                <span asp-validation-for="Input.ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.FirstName"></label>
+                <input asp-for="Input.FirstName" class="form-control" />
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.LastName"></label>
+                <input asp-for="Input.LastName" class="form-control" />
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h4>Use another service to register.</h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                            for details on setting up this ASP.NET application to support logging in via external services.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 4000);
+    </script>
+}
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <span class="login100-form-title p-b-26">
+                    Register
+                </span>
+                @if (!ViewData.ModelState.IsValid && ViewData.ModelState[string.Empty] != null)
+                {
+                    @foreach (var error in @ViewData.ModelState[string.Empty]?.Errors)
+                    {
+                        <div id="msgAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <span>@error.ErrorMessage</span>
+                        </div>
+                    }
+                }
+                
+                <div class="wrap-input100 validate-input" data-validate="Please enter ID">
+                    <input class="input100" asp-for="Input.ID">
+                    <span class="focus-input100" data-placeholder="ID" ></span>
+
+                </div>
+                
+                <div class="wrap-input100 validate-input" data-validate="Please enter First Name">
+                    <input class="input100" asp-for="Input.FirstName">
+                    <span class="focus-input100" data-placeholder="First name"></span>
+
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Please enter Last Name">
+                    <input class="input100" asp-for="Input.LastName">
+                    <span class="focus-input100" data-placeholder="Last name"></span>
+
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Please enter Date of birth">
+                    <input class="input100" asp-for="Input.Dob">
+                    <span class="focus-input100" data-placeholder="Date of birth"></span>
+
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Please enter Email">
+                    <input class="input100" asp-for="Input.Email">
+                    <span class="focus-input100" data-placeholder="Email"></span>
+
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Please enter Password">
+                    <span class="btn-show-pass">
+                        <i class="zmdi zmdi-eye"></i>
+                    </span>
+                    <input class="input100 "  asp-for="Input.Password">
+                    <span class="focus-input100 " data-placeholder="Password" ></span>
+
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Please enter Confirm Password">
+                  <span class="btn-show-pass">
+                        <i class="zmdi zmdi-eye"></i>
+                    </span>
+                    <input class="input100" asp-for="Input.ConfirmPassword">
+                    <span class="focus-input100 text-danger" data-placeholder="Confirm password" asp-validation-for="Input.ConfirmPassword"></span>
+
+                </div>
+              
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+
+                        <button class="login100-form-btn" type="submit">
+                            Register
+                        </button>
+
+                    </div>
+                </div>
+                <div class="text-center p-t-115">
+                    <a class="txt1" >
+                        Need a help?
+                    </a>
+
+                    <a class="txt2" href="404.html">
+                        Please contact us
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

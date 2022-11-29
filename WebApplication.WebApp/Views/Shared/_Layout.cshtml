@@ -32,34 +32,7 @@
         @RenderBody()
      
 
-        <!-- Subscribe-section
-        ================================================== -->
-        <section>
-            <div id="subscribe-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                            <div class="newsletter-title text-center">
-                                <h4 localize-content>Stay informed with our newsletter</h4>
-                            </div> <!-- end newsletter-title -->
-                            <form class="form-inline subscription-form mailchimp" id="subscribeform">
-                                <!-- Subscription messages -->
-                                <h5 class="subscription-success"></h5>
-                                <h5 class="subscription-error"></h5>
-                                <!-- Email input -->
-                                <div class="form-group newsletter-field">
-                                    <input type="email" name="EMAIL" class="form-control" id="subscriber-email"
-                                           placeholder="jane@example.com">
-                                </div>
-                                <!-- Subscribe button -->
-                                <button type="submit" id="subscribe-button" class="btn btn-sm btn-dark">Subscribe</button>
-                            </form>
-                        </div> <!-- end col-sm-6 -->
-                    </div> <!-- end row -->
-                </div> <!-- end container -->
-            </div> <!-- end subscribe-section -->
-        </section>
-        <!-- End subscribe section -->
+        <partial name="_Section" />
 
         <section>
             <div class="sep-section"></div>
@@ -78,13 +51,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
-                            <a href="tel:+123000456"><i class="pe-7s-phone"></i>EXT:535+27299</a>
+                            <a href="EXT:535+27299"><i class="pe-7s-phone"></i>EXT:535+27299</a>
                         </div>
                         <div class="col-sm-4">
-                            <a href="mailto:hello@hotmail.com"><i class="pe-7s-mail"></i>system-attwvn@mail.foxconn.com</a>
+                            <a href="mailto:system-attwvn@mail.foxconn.com"><i class="pe-7s-mail"></i>system-attwvn@mail.foxconn.com</a>
                         </div>
                         <div class="col-sm-4">
-                            <a href="tel:+123000456"><i class="pe-7s-phone"></i>EXT:535+20770</a>
+                            <a href="EXT:535+20770"><i class="pe-7s-phone"></i>EXT:535+20770</a>
                         </div>
                     </div>
                 </div>
@@ -95,7 +68,7 @@
 
     </div> <!-- End wrapper -->
     <partial name="_ThemeScripts" />
-   
+    @RenderSection("Scripts", required:false)
 </body>
 
 </html>

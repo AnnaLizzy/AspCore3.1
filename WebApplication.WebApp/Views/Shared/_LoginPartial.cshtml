@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WebApplication.WebApp.Areas.Identity.Data
+
+@inject SignInManager<WebApplicationWebAppUser> SignInManager
+@inject UserManager<WebApplicationWebAppUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+     <li class="dropdown">
+        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserId(User)</a>
+    </li>
+    <li class="dropdown">
+        <a id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+           Logout
+        </a>
+    </li>
+}
+else
+{
+    
+    <li class="dropdown">
+        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>
+}
+
+@*<a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User)!</a>*@

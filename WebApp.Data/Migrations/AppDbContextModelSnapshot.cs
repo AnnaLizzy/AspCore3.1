@@ -194,7 +194,7 @@ namespace WebApp.Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "5a87afb9-9294-4d46-8ee5-c0bc5ac84b36",
+                            ConcurrencyStamp = "d4bb9293-8204-4c06-8d7e-bfd832d75386",
                             Decreption = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -284,7 +284,7 @@ namespace WebApp.Data.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6f76a4a5-fd35-4762-867f-3da982045553",
+                            ConcurrencyStamp = "537ab4e4-9f84-4e03-8618-96fe2ab64fc2",
                             Dob = new DateTime(2000, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin.default@gmail.com",
                             EmailConfirmed = true,
@@ -293,7 +293,7 @@ namespace WebApp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin.default@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEO4xtt+36khb1X9D/vMP3GNtWcNF0qa/HaixBrgZV7rNm4ORle6YaQ18AU7cUE9YQQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEK/rGc7XUVLxfdS7aLaiyDcdrYOFRYakW//sKCuIaV5rQamk+MWxACy7wOsRBG8wUA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -314,7 +314,7 @@ namespace WebApp.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("demical(5,3)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -588,7 +588,7 @@ namespace WebApp.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("demical(5,3)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -616,10 +616,10 @@ namespace WebApp.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("OriginPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("demical(5,3)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("demical(5,3)");
 
                     b.Property<int>("Stock")
                         .ValueGeneratedOnAdd()
@@ -639,7 +639,7 @@ namespace WebApp.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 10, 25, 11, 10, 20, 658, DateTimeKind.Local).AddTicks(2644),
+                            DateCreated = new DateTime(2022, 11, 28, 9, 32, 6, 695, DateTimeKind.Local).AddTicks(1899),
                             OriginPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -798,10 +798,10 @@ namespace WebApp.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal?>("DiscountAmount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("demical(5,3)");
 
                     b.Property<int?>("DiscountPercent")
-                        .HasColumnType("int");
+                        .HasColumnType("demical(5,3)");
 
                     b.Property<DateTime>("FromDate")
                         .HasColumnType("datetime2");
@@ -877,13 +877,13 @@ namespace WebApp.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("demical(5,3)");
 
                     b.Property<string>("ExternalTransactionId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Fee")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("demical(5,3)");
 
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");

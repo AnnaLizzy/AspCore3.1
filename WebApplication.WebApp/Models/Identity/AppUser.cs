@@ -3,7 +3,7 @@ using System;
 
 namespace WebApplication.WebApp.Models.Identity
 {
-    public class ApplicationUser : IdentityUser
+    public class AppUser : IdentityUser
     {
         [PersonalData]
         public string FullName { get; set; }

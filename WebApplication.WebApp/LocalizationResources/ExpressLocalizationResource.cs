@@ -1,6 +1,6 @@
 ﻿namespace WebApplication.WebApp.LocalizationResources
 {
-    public class ExpressLocalizationResource
+    public class ExpressLocalizationResource//blinding model
     {
     }
 }

@@ -19,7 +19,9 @@
   color: red;
 }
 /***********************************************************************************************/
-
+.nav-item{
+    justify-content: center;
+}
 body {
   font-family: 'Raleway', sans-serif;
   color: #737272;

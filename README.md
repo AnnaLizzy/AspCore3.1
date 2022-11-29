@@ -5,3 +5,5 @@
 ## Test
 ## Tim user, password data seeding
 ## Extentions--ModelBuiderExtension.cs
+# Using Localization
+_ login without entity Web.Adminapp
