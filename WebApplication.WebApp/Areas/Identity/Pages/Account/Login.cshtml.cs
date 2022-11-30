@@ -45,7 +45,7 @@ namespace WebApplication.WebApp.Areas.Identity.Pages.Account
         {
             [Required]
             
-            public string ID { get; set; }
+            public string Id { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
@@ -80,7 +80,8 @@ namespace WebApplication.WebApp.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.ID, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                //var user =  new WebApplicationWebAppUser {UserName = Input.UserName };
+                var result = await _signInManager.PasswordSignInAsync(Input.Id, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in");

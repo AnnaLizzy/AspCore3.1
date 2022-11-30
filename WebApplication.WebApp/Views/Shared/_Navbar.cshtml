@@ -38,11 +38,11 @@
                     <li><a href="contact.html" localize-content>Liên hệ</a></li>
                   
                     <partial name="_LoginPartial" />
-                    <li class="dropdown" style="padding-top:10px; text-transform:uppercase ;">
-                      
-                        <language-nav language-label="NativeName" view-context="ViewContext" 
+                    <li class="dropdown" style="padding-top:10px; text-transform:uppercase ; text-decoration:none">
+                        <language-nav language-label="NativeName" view-context="ViewContext"></language-nav>
+                        @*<language-nav language-label="NativeName" view-context="ViewContext" 
                                       cookie-handler-url="@(Url.Action("SetCultureCookie", "Home", new { area= "", cltr="{0}", returnUrl="{1}" }))">
-                        </language-nav>
+                        </language-nav>*@
                     </li>
                 </ul>
           

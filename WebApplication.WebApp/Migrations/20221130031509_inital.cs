@@ -41,7 +41,8 @@ namespace WebApplication.WebApp.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true)
+                    LastName = table.Column<string>(nullable: true),
+                    Dob = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

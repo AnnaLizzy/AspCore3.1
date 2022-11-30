@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using WebApplication.WebApp.Areas.Identity.Data;
+using WebApplication.WebApp.Views.Shared.Components;
 
 namespace WebApplication.WebApp.Areas.Identity.Pages.Account
 {
@@ -37,9 +38,22 @@ namespace WebApplication.WebApp.Areas.Identity.Pages.Account
             }
             else
             {
-                return RedirectToPage();
+                return RedirectToPage("/Login");
             }
-           
+            //if (!_signInManager.IsSignedIn(User)) return RedirectToPage("/Index");
+
+            //await _signInManager.SignOutAsync();
+            //_logger.LogInformation("Người dùng đăng xuất");
+
+
+            //return ViewComponent(MessagePage.COMPONENTNAME,
+            //    new MessagePage.Message()
+            //    {
+            //        Title = "Đã đăng xuất",
+            //        Htmlcontent = "Đăng xuất thành công",
+            //        Urlredirect = returnUrl ?? Url.Page("/Index")
+            //    }
+            //);
         }
     }
 }

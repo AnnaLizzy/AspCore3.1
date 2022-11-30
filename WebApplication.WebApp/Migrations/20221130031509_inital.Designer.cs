@@ -10,7 +10,7 @@ using WebApplication.WebApp.Data;
 namespace WebApplication.WebApp.Migrations
 {
     [DbContext(typeof(WebApplicationWebAppDbContext))]
-    [Migration("20221125013214_inital")]
+    [Migration("20221130031509_inital")]
     partial class inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -167,6 +167,9 @@ namespace WebApplication.WebApp.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Dob")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")

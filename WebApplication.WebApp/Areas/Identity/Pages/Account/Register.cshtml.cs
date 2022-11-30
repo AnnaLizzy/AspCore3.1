@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -47,8 +48,9 @@ namespace WebApplication.WebApp.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            
             [Display(Name = "ID")]
-            public string ID { get; set; }
+            public string ID{ get; set; }
 
             [Display(Name = "Tên")]
             public string FirstName { get; set; }
@@ -90,7 +92,7 @@ namespace WebApplication.WebApp.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new WebApplicationWebAppUser {Id =Input.ID,FirstName =Input.FirstName,LastName = Input.LastName, UserName = Input.Email,Dob =Input.Dob ,Email = Input.Email, };
+                var user = new WebApplicationWebAppUser {Id =Input.ID,FirstName =Input.FirstName,LastName = Input.LastName, UserName = Input.ID,Dob =Input.Dob ,Email = Input.Email, };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

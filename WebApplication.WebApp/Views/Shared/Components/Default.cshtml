@@ -1,0 +1,16 @@
+﻿@model WebApplication.WebApp.Views.Shared.Components.MessagePage.Message
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = @Model.Title;
+}
+<div class="card m-4">
+   <div class="card-header bg-danger text-light">
+       <h3>@Model.Title</h3>
+   </div>
+   <div class="card-body">
+        @Html.Raw(Model.Htmlcontent)
+   </div>
+   <div class="card-footer">
+       Chuyển đến - <a href="@Model.Urlredirect">@Model.Urlredirect</a>
+   </div>
+</div>

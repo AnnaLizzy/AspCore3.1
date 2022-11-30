@@ -137,9 +137,21 @@
     <value>Liên hệ</value>
     <comment>Navbar</comment>
   </data>
+  <data name="LOGIN" xml:space="preserve">
+    <value>ĐĂNG NHẬP</value>
+    <comment>_LoginPartial</comment>
+  </data>
+  <data name="LOGOUT" xml:space="preserve">
+    <value>ĐĂNG XUẤT</value>
+    <comment>_LoginPartial</comment>
+  </data>
   <data name="Quản lý hàng ra vào" xml:space="preserve">
     <value>Quản lý hàng ra vào</value>
     <comment>Navbar</comment>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Trợ giúp</value>
+    <comment>_Footer</comment>
   </data>
   <data name="Thông tin" xml:space="preserve">
     <value>Thông tin</value>

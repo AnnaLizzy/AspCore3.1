@@ -7,20 +7,32 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-     <li class="dropdown">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserId(User)</a>
-    </li>
     <li class="dropdown">
-        <a id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-           Logout
-        </a>
+        <a class=" dropdown-toggle" role="button" data-toggle="dropdown" href="#" title="Manage" localize-content>Quản lý</a>
+        <ul class="dropdown-menu" style="right:auto;">
+            <li class="dropdown">
+                <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserId(User)</a>
+            </li>
+            <li class="dropdown">
+                <a class="nav-link text-dark" href="#" title="Manage">Công việc của tôi</a>
+            </li>
+            <li class="dropdown">
+                @*<a id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                   Logout
+                </a>*@
+               <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
+                  asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"
+                  method="post">
+                    <button type="submit" class="nav-link btn btn-link text-dark" style="text-decoration:none;" localize-content>LOGOUT</button>
+                </form>
+            </li>
+        </ul>
     </li>
 }
 else
 {
-    
     <li class="dropdown">
-        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login" localize-content>LOGIN</a>
     </li>
 }
 
