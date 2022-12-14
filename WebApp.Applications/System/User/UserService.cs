@@ -17,13 +17,13 @@ namespace WebApp.Applications.System.User
 {
     public class UserService : IUserService
     {
-        private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
-        private readonly RoleManager<AppRole> _roleManager;
+        private readonly UserManager<Admin> _userManager;
+        private readonly SignInManager<Admin> _signInManager;
+        private readonly RoleManager<AdminRole> _roleManager;
 
         private readonly IConfiguration _config;
-        public UserService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
-            RoleManager<AppRole> roleManager, IConfiguration config)
+        public UserService(UserManager<Admin> userManager, SignInManager<Admin> signInManager,
+            RoleManager<AdminRole> roleManager, IConfiguration config)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -66,23 +66,25 @@ namespace WebApp.Applications.System.User
 
         public async Task<ApiResult<bool>> Register(RegisterRequest request)
         {
-            var user = await _userManager.FindByNameAsync(request.UserName);
+            var user = await _userManager.FindByNameAsync(request.EmployNO);
             if (user != null)
             {
                 return new ApiErrorResult<bool>("Tài khoản đã tồn tại");
             }
-            if (await _userManager.FindByEmailAsync(request.Email) != null)
+            if (await _userManager.FindByEmailAsync(request.Notes) != null)
             {
                 return new ApiErrorResult<bool>("Email dã tồn tại");
             }
-            user = new AppUser()
+            user = new Admin()
             {
+                
                 Dob = request.Dob,
-                Email = request.Email,
+                Email = request.Notes,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
-                UserName = request.UserName,
+                UserName = request.EmployNO,
                 PhoneNumber = request.PhoneNumber,
+                EmployNO= request.EmployNO,
 
             };
             var resutl = await _userManager.CreateAsync(user, request.Password);

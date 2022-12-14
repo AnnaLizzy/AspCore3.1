@@ -13,11 +13,11 @@ namespace WebApp.ViewModels.System.Users
                 .MaximumLength(200).WithMessage("Họ không quá 200 kí tự !");
             RuleFor(c => c.Dob).GreaterThan(DateTime.Now.AddYears(-100))
                 .WithMessage("Nhập lại !");
-            RuleFor(c => c.Email).NotEmpty().WithMessage("Không bỏ trống trường này !")
+            RuleFor(c => c.Notes).NotEmpty().WithMessage("Không bỏ trống trường này !")
                 .Matches(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")
                 .WithMessage("Định dạng Email không đúng !");
             RuleFor(c => c.PhoneNumber).NotEmpty().WithMessage("Không bỏ trống trường này !");
-            RuleFor(c => c.UserName).NotEmpty().WithMessage("Nhập tên người dùng !");
+            RuleFor(c => c.EmployNO).NotEmpty().WithMessage("Nhập tên mã nhân viên!");
             RuleFor(c => c.Password).NotEmpty().WithMessage("Nhập mật khẩu !")
                 .MinimumLength(6).WithMessage("Mật khẩu ít nhất 6 kí tự !");
             RuleFor(c => c).Custom((request, context) =>

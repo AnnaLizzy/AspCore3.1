@@ -98,10 +98,39 @@
                                     @Html.DisplayFor(modelItem => item.Email)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Sửa", "Edit", new {  id=item.Id }) |
-                                    @Html.ActionLink("Chi tiết", "Details", new {  id=item.Id }) |
-                                    @Html.ActionLink("Xóa", "Delete", new {  id=item.Id }) |
-                                    @Html.ActionLink("Gán quyền","RoleAssign", new {  id=item.Id })
+                                    <a href="@Url.Action("Details","User",new {id=item.Id})">
+                                        <button type="button" class="btn btn-info">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-info-circle"></i>
+                                            </span>
+                                            <span class="text">Chi tiết</span>
+                                        </button>
+                                    </a>
+                                    <a href="@Url.Action("Edit", "User",new {id=item.Id})">
+                                        <button type="button" class="btn btn-primary">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-pen"></i>
+                                            </span>
+                                            <span class="text">Sửa</span>
+                                        </button>
+                                    </a>
+                                    <a href="@Url.Action("RoleAssign","User",new {id=item.Id})">
+                                        <button type="button" class="btn btn-primary">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-user"></i>
+                                            </span>
+                                            <span class="text">Gán quyền</span>
+                                        </button>
+                                    </a>
+                                    <a href="@Url.Action("Delete", "User",new {id=item.Id})">
+                                        <button type="button" class="btn btn-danger">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span class="text"></span>
+                                        </button>
+                                    </a>
+                                   
                                 </td>
                             </tr>
                         }

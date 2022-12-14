@@ -15,6 +15,6 @@ namespace WebApp.Data.Entities
         public string Provider { set; get; }
 
         public Guid UserId { set; get; }
-        public AppUser AppUser { set; get; }
+        public Admin AppUser { set; get; }
     }
 }

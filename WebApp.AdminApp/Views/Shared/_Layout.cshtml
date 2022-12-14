@@ -19,10 +19,13 @@
     <!-- Custom styles for this page -->
     <link href="~/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/20.3.56/material.css" />
+    <script src="https://cdn.syncfusion.com/ej2/20.3.56/dist/ej2.min.js"></script>
+
 </head>
 
 <body id="page-top">
-   
+    
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -84,7 +87,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" asp-controller="Product" asp-action="Index">Danh sách sản phẩm</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item"asp-controller="Card" asp-action="Index">Thẻ cứng</a>
                         <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
@@ -219,8 +222,9 @@
 
     <!-- Page level custom scripts -->
     <script src="~/js/demo/datatables-demo.js"></script>
-    
-    @RenderSection("Scripts", required:false)
+    <ejs-scripts></ejs-scripts>
+    @await RenderSectionAsync("Scripts", required: false)
+    @*@RenderSection("Scripts", required:false)*@
 </body>
 
 </html>

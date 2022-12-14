@@ -53,21 +53,21 @@ namespace WebApplication.WebApp
             {
                 options.UseSqlServer(Configuration.GetConnectionString("WebtestDb"));
             });
-            //services.PostConfigure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, options =>
-            //{
-                //options.AccessDeniedPath = "/access-denied";
-                //options.LoginPath = "/login";
-                //options.LogoutPath = "/logout";
+            services.PostConfigure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, options =>
+            {
+                options.AccessDeniedPath = "/access-denied";
+                options.LoginPath = "/login";
+                options.LogoutPath = "/logout";
 
-               // options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-            //});
+                options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+            });
             services.AddDistributedMemoryCache();           // Đăng ký dịch vụ lưu cache trong bộ nhớ (Session sẽ sử dụng nó)
             services.AddSession(cfg =>
             {                    // Đăng ký dịch vụ Session
                 cfg.Cookie.Name = "Test Web này";             // Đặt tên Session - tên này sử dụng ở Browser (Cookie)
                 cfg.IdleTimeout = TimeSpan.FromMinutes(30);    // Thời gian tồn tại của Session
             });
-            services.AddRazorPages();
+            services.AddRazorPages(); 
             // DI
         }
 

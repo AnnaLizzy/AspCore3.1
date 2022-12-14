@@ -23,7 +23,7 @@ namespace WebApp.AdminApp.Controllers
             _configuration = configuration;
             _roleApiClient = roleApiClient;
         }
-
+     
         public async Task<IActionResult> Index(string keyword, int pageIndex = 1, int pageSize = 10)
         {
             var request = new GetUserPagingRequest()
@@ -76,6 +76,7 @@ namespace WebApp.AdminApp.Controllers
         public async Task<IActionResult> Edit(Guid id)
         {
             var result = await _userApiClient.GetById(id);
+            
             if (result.IsSuccessed)
             {
                 var user = result.ResultObj;

@@ -15,14 +15,14 @@ namespace WebApp.ViewModels.System.Users
         [DataType(DataType.Date)]
         public DateTime Dob { get; set; }
 
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "Notes")]
+        public string Notes { get; set; }
 
         [Display(Name = "Số điện thoại")]
         public string PhoneNumber { get; set; }
 
-        [Display(Name = "Username")]
-        public string UserName { get; set; }
+        [Display(Name = "EmployeeNo")]
+        public string EmployNO { get; set; }
 
         [Display(Name = "Mật khẩu")]
         [DataType(DataType.Password)]

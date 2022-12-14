@@ -43,7 +43,7 @@ namespace WebApp.AdminApp
             });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+            services.AddRazorPages();
             services.AddControllersWithViews();
             // kiem tra nhap lieu
             services.AddFluentValidationAutoValidation();
@@ -53,6 +53,7 @@ namespace WebApp.AdminApp
             services.AddTransient<IRoleApiClient, RoleApiClient>();
             services.AddTransient<ILanguageApiClient, LanguageApiClient>();
             services.AddTransient<IProductApiClient, ProductApiClient>();
+            services.AddTransient<ICardAPIClient, CardAPIClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,6 +81,7 @@ namespace WebApp.AdminApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

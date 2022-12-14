@@ -1,12 +1,10 @@
-﻿
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Net.Http;
 using System;
 using System.Threading.Tasks;
 using WebApp.ViewModels.Catalog.Products;
 using WebApp.ViewModels.Common;
-using WebApp.ViewModels.System.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.IO;
@@ -28,8 +26,6 @@ namespace WebApp.AdminApp.Services
             _configuration = configuration;
             _httpClientFactory = httpClientFactory;
         }
-   
-
         public async Task<bool> Create(ProductCreateRequest request)
         {
             {
@@ -44,8 +40,19 @@ namespace WebApp.AdminApp.Services
                 client.BaseAddress = new Uri(_configuration[SystemConstant.AppSettings.BaseAddress]);
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
 
-                var requestContent = new MultipartFormDataContent();
-
+                var requestContent = new MultipartFormDataContent
+                    {
+                        {new StringContent(request.Price.ToString()), "price" },
+                        {new StringContent(request.OriginPrice.ToString()), "originalprice" },
+                        {new StringContent(request.Stock.ToString()), "stock" },
+                        {new StringContent(request.Name.ToString()), "name" },
+                        {new StringContent(request.Description.ToString()), "description"},
+                        {new StringContent(request.Details.ToString()), "details"},
+                        {new StringContent(request.SeoDecription.ToString()), "seodecription"},
+                        {new StringContent(request.SeoTitle.ToString()), "seotitle" },
+                        {new StringContent(request.SeoAlias.ToString()), "seoalias" },
+                        {new StringContent(languageId.ToString()), "languageid" },                   
+                     };
                 if (request.ThumbnailImage != null)
                 {
                     byte[] data;
@@ -57,30 +64,30 @@ namespace WebApp.AdminApp.Services
                     requestContent.Add(bytes, "thumbnailImage", request.ThumbnailImage.FileName);
                 }
 
-                requestContent.Add(new StringContent(request.Price.ToString()), "price");
-                requestContent.Add(new StringContent(request.OriginPrice.ToString()), "originalPrice");
-                requestContent.Add(new StringContent(request.Stock.ToString()), "stock");
-                requestContent.Add(new StringContent(request.Name.ToString()), "name");
-                requestContent.Add(new StringContent(request.Description.ToString()), "description");
+                //requestContent.Add(new StringContent(request.Price.ToString()), "price");
+                //requestContent.Add(new StringContent(request.OriginPrice.ToString()), "originalprice");
+                //requestContent.Add(new StringContent(request.Stock.ToString()), "stock");
+                //requestContent.Add(new StringContent(request.Name.ToString()), "name");
+                //requestContent.Add(new StringContent(request.Description.ToString()), "description");
+                //requestContent.Add(new StringContent(request.Details.ToString()), "details");
+                //requestContent.Add(new StringContent(request.SeoDecription.ToString()), "seodecription");
+                //requestContent.Add(new StringContent(request.SeoTitle.ToString()), "seotitle");
+                //requestContent.Add(new StringContent(request.SeoAlias.ToString()), "seoalias");
+                //requestContent.Add(new StringContent(languageId.ToString()), "languageId");
 
-                requestContent.Add(new StringContent(request.Details.ToString()), "details");
-                requestContent.Add(new StringContent(request.SeoDecreption.ToString()), "seoDescription");
-                requestContent.Add(new StringContent(request.SeoTitle.ToString()), "seoTitle");
-                requestContent.Add(new StringContent(request.SeoAlias.ToString()), "seoAlias");
-                requestContent.Add(new StringContent(languageId), "languageId");
+                var response = await client.PostAsync($"/api/product/", requestContent);//500
 
-                var response = await client.PostAsync($"/api/product/",requestContent);
-                return response.IsSuccessStatusCode;
+                    return response.IsSuccessStatusCode;
+               
+               
             }
         }
-
         public async Task<PageResult<ProductViewModel>> GetPagings(GetManageProductPagingRequest request)
         {
            var data = await GetAsync<PageResult<ProductViewModel>>(
-               $"/api/product/paging?PageIndex={request.PageIndex}" + $"&PageSize={request.PageSize}" +
-                $"&Keyword={request.Keyword}" +
-                $"&languageid={request.LanguageId}");
-           
+               $"/api/product/paging?pageIndex={request.PageIndex}" + $"&pageSize={request.PageSize}" +
+                $"&keyword={request.Keyword}" +
+                $"&languageid={request.LanguageId}");           
             return data;
         }
     }

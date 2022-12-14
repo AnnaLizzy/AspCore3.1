@@ -8,7 +8,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using WebApp.Utilities.Constants;
 using System.Threading.Tasks;
-using WebApp.ViewModels.Common;
 
 namespace WebApp.AdminApp.Services
 {

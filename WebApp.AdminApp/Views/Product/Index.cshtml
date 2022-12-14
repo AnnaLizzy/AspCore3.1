@@ -40,7 +40,7 @@
                     <div class="col-6">
                     </div>
                     <div class="row justify-content-end">
-                        <form class="form-inline m-1" method="get" asp-action="Index">
+                        <form class="form-inline m-1" method="get" asp-action="Index" >
                             <div class="col-md-4 col-xl-12">
                                 <input type="text" name="Keyword" class="form-control mr-sm-3 " value="@ViewBag.Keyword" placeholder="Tìm kiếm" />
                                 <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search fa-sm"></i></button>
@@ -57,7 +57,7 @@
                 </div>
             }
             <div class="table-responsive">
-                <table class="table table-bordered text-gray-900" @*id="dataTable"*@ width="100%" cellspacing="0">
+                <table class="table table-bordered text-gray-900"  width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>
@@ -98,9 +98,31 @@
                                     @Html.DisplayFor(modelItem => item.Stock)
                                 </td>                               
                                 <td>
-                                    @Html.ActionLink("Sửa", "Edit", new {  id=item.Id }) |
-                                    @Html.ActionLink("Chi tiết", "Details", new {  id=item.Id }) |
-                                    @Html.ActionLink("Xóa", "Delete", new {  id=item.Id })                                    
+                                    <a href="@Url.Action("Edit","Product",new {id=item.Id})">
+                                        <button type="button" class="btn btn-primary"> 
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-pen"></i>
+                                            </span>
+                                            <span class="text">Sửa</span>
+                                        </button>
+                                    </a>
+                                    <a href="@Url.Action("Details","Product",new {id=item.Id})">
+                                        <button type="button" class="btn btn-info">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-info"></i>
+                                            </span>
+                                            <span class="text">Chi tiết</span>
+                                        </button>
+                                    </a>
+                                    <a href="@Url.Action("Delete","Product",new {id=item.Id})">
+                                        <button type="button" class="btn btn-danger">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span class="text">Xóa</span>
+                                        </button>
+                                    </a>
+                                                                    
                                 </td>
                             </tr>
                         }
@@ -116,3 +138,47 @@
 
 </div>
 
+ @*<tr>
+                            <th>
+                                Admin ID
+                            </th>
+                            <th>
+                                Tráng thái
+                            </th>
+                            <th>
+                                Mã thẻ
+                            </th>
+                            <th>
+                                Số se-ri
+                            </th>
+                            <th>
+                                Ngày tạo 
+                            </th>  
+                            <th>
+                                Ngày hết hạn
+                            </th> 
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AdminID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CardID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SerialNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedTime)
+                                </td>   
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EndTime)
+                                </td>*@

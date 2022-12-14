@@ -46,12 +46,12 @@ namespace WebApp.AdminApp.Controllers
         }
         [HttpPost]
         [Consumes("multipart/form-data")]
-        public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
+        public async Task<IActionResult> Create(ProductCreateRequest request)
         {
             if (!ModelState.IsValid)
                 return View(request);
 
-            var result = await _productApiClient.Create(request);
+            var result = await _productApiClient.Create(request);// false
             if (result)
             {
                 TempData["result"] = "Thêm mới sản phẩm thành công";

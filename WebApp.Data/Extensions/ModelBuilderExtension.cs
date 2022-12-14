@@ -10,6 +10,9 @@ namespace WebApp.Data.Extensions
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Card>().HasData(
+                new Card() { AdminID= 2,CardID = 2, CardNumber = "M201911-05-QV", SerialNumber= "2100027",Type = 3,ID=1, Status=Status.Active,Color = Color.White,Company = "Viet quang.,ltd",CreatedTime=DateTime.Now,EndTime=new DateTime(20/12/2022),ControlType=2,WorkType=1 }
+                );
             modelBuilder.Entity<AppConfig>().HasData(
                new AppConfig() { Key = "HomeTitle", Values = "This is home page of eShopSolution" },
                new AppConfig() { Key = "HomeKeyword", Values = "This is keyword of eShopSolution" },
@@ -85,7 +88,7 @@ namespace WebApp.Data.Extensions
             // any guid
             var roleId = new Guid("8D04DCE2-969A-435D-BBA4-DF3F325983DC");
             var adminId = new Guid("69BD714F-9576-45BA-B5B7-F00649BE00DE");
-            modelBuilder.Entity<AppRole>().HasData(new AppRole
+            modelBuilder.Entity<AdminRole>().HasData(new AdminRole
             {
                 Id = roleId,
                 Name = "admin",
@@ -93,8 +96,8 @@ namespace WebApp.Data.Extensions
                 Decreption = "Administrator role"
             });
 
-            var hasher = new PasswordHasher<AppUser>();
-            modelBuilder.Entity<AppUser>().HasData(new AppUser
+            var hasher = new PasswordHasher<Admin>();
+            modelBuilder.Entity<Admin>().HasData(new Admin
             {
                 Id = adminId,
                 UserName = "admin",

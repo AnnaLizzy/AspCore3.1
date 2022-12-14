@@ -12,9 +12,9 @@ namespace WebApp.Applications.System.Roles
 {
     public class RoleService : IRoleService
     {
-        private readonly RoleManager<AppRole> _roleManager;
+        private readonly RoleManager<AdminRole> _roleManager;
 
-        public RoleService(RoleManager<AppRole> roleManager)
+        public RoleService(RoleManager<AdminRole> roleManager)
         {
             _roleManager = roleManager;
         }

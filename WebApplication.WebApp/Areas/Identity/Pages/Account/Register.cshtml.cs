@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -14,6 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
 using WebApplication.WebApp.Areas.Identity.Data;
 
 namespace WebApplication.WebApp.Areas.Identity.Pages.Account
@@ -48,9 +47,9 @@ namespace WebApplication.WebApp.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            
+
             [Display(Name = "ID")]
-            public string ID{ get; set; }
+            public string ID { get; set; }
 
             [Display(Name = "Tên")]
             public string FirstName { get; set; }
@@ -61,6 +60,7 @@ namespace WebApplication.WebApp.Areas.Identity.Pages.Account
 
             [Display(Name = "Ngày sinh")]
             [DataType(DataType.Date)]
+            //[Range(1970, 2022, ErrorMessage = "{0} phải trong khoảng {1} đến {2}")]
             public DateTime Dob { get; set; }
 
             [Required]
@@ -88,11 +88,11 @@ namespace WebApplication.WebApp.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new WebApplicationWebAppUser {Id =Input.ID,FirstName =Input.FirstName,LastName = Input.LastName, UserName = Input.ID,Dob =Input.Dob ,Email = Input.Email, };
+                var user = new WebApplicationWebAppUser { Id = Input.ID, FirstName = Input.FirstName, LastName = Input.LastName, UserName = Input.ID, Dob = Input.Dob, Email = Input.Email, };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -119,6 +119,7 @@ namespace WebApplication.WebApp.Areas.Identity.Pages.Account
                         return LocalRedirect(returnUrl);
                     }
                 }
+
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);

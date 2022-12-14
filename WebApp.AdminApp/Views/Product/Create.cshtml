@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data" method="post">
+        <form asp-action="Create" enctype="multipart/form-data" method="post" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -44,9 +44,9 @@
                 <span asp-validation-for="Details" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SeoDecreption" class="control-label"></label>
-                <input asp-for="SeoDecreption" class="form-control" />
-                <span asp-validation-for="SeoDecreption" class="text-danger"></span>
+                <label asp-for="SeoDecription" class="control-label"></label>
+                <input asp-for="SeoDecription" class="form-control" />
+                <span asp-validation-for="SeoDecription" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SeoAlias" class="control-label"></label>
@@ -62,6 +62,11 @@
                 <label asp-for="ThumbnailImage" class="control-label"></label>
                 <input asp-for="ThumbnailImage" class="form-control" />
                 <span asp-validation-for="ThumbnailImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LangugeId" class="control-label"></label>
+                <input asp-for="LangugeId" class="form-control" />
+                <span asp-validation-for="LangugeId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

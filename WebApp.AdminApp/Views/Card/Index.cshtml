@@ -1,0 +1,354 @@
+﻿@using WebApp.ViewModels.Common;
+@model PageResult<WebApp.ViewModels.Catalog.Card.CardViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Mã thẻ cứng
+            </th>
+            <th>
+                AdminID
+            </th>
+            <th>
+                Số thẻ
+            </th>
+            <th>
+                Số Se-ri
+            </th>
+            <th>
+                Loại
+            </th>
+            <th>
+                ID
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th>
+               Màu
+            </th>
+            <th>
+                Công ty
+            </th>
+            <th>
+                Ngày tạo
+            </th>
+            <th>
+               ngày hết hạn
+            </th>
+            <th>
+                Đã xóa
+            </th>
+            <th>
+                Ngày thay đổi
+            </th>
+            <th>
+                ControlType
+            </th>
+            <th>
+                WorkType
+            </th>
+            <th>
+               CardModelID
+            </th>
+            <th>
+                Ngày xóa
+            </th>
+            <th>
+                CardGuidID
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Items) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ControlType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardModelID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeleteDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardGUID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+    @await Component.InvokeAsync("Page",Model)
+</table>*@
+
+@section Scripts{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 2000);
+    </script>
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Danh sách thẻ cứng</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+        </a>
+    </div>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+        <li class="breadcrumb-item active">Danh sách thẻ cứng</li>
+    </ol>
+    <!-- DataTales-->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="row">
+                <div class="col-md-4 col-xl-2">
+                    <a asp-controller="Card" asp-action="Create" class="btn btn-primary btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Thêm mới</span>
+                    </a>
+                </div>
+                <div class="col-6">
+                </div>
+                <div class="row justify-content-end">
+                    <form class="form-inline m-1" method="get" asp-action="Index">
+                        <div class="col-md-4 col-xl-12">
+                            <input type="text" name="Keyword" class="form-control mr-sm-3 " value="@ViewBag.Keyword" placeholder="Tìm kiếm" />
+                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search fa-sm"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.SuccessMsg != null)
+            {
+                <div id="msgAlert" class="alert alert-success" role="alert">
+                    @ViewBag.SuccessMsg
+                </div>
+            }
+            <div class="table-responsive">
+                <table class="table table-bordered text-gray-900" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                Mã thẻ cứng
+                            </th>
+                            <th>
+                                AdminID
+                            </th>
+                            <th>
+                                Số thẻ
+                            </th>
+                            <th>
+                                Số Se-ri
+                            </th>
+                            <th>
+                                Loại
+                            </th>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Trạng thái
+                            </th>
+                            <th>
+                                Màu
+                            </th>
+                            <th>
+                                Công ty
+                            </th>
+                            <th>
+                                Ngày tạo
+                            </th>
+                            <th>
+                                ngày hết hạn
+                            </th>
+                            <th>
+                                Đã xóa
+                            </th>
+                            <th>
+                                Ngày thay đổi
+                            </th>
+                            <th>
+                                ControlType
+                            </th>
+                            <th>
+                                WorkType
+                            </th>
+                            <th>
+                                CardModelID
+                            </th>
+                            <th>
+                                Ngày xóa
+                            </th>
+                            <th>
+                                CardGuidID
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(Model != null){
+                            @foreach (var item in Model.Items)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CardID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AdminID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CardNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SerialNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Type)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Color)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Company)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedTime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EndTime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsDeleted)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ModifiedTime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ControlType)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.WorkType)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CardModelID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DeleteDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CardGUID)
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Edit","Product",new {id=item.CardID})">
+                                            <button type="button" class="btn btn-primary">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-pen"></i>
+                                                </span>
+                                                <span class="text">Sửa</span>
+                                            </button>
+                                        </a>
+                                        <a href="@Url.Action("Details","Product",new {id=item.CardID})">
+                                            <button type="button" class="btn btn-info">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-info"></i>
+                                                </span>
+                                                <span class="text">Chi tiết</span>
+                                            </button>
+                                        </a>
+                                        <a href="@Url.Action("Delete","Product",new {id=item.CardID})">
+                                            <button type="button" class="btn btn-danger">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span class="text">Xóa</span>
+                                            </button>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            }
+
+                        }
+                    </tbody>
+
+                </table>
+                @await Component.InvokeAsync("Page",Model)
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

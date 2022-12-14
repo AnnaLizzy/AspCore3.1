@@ -13,13 +13,15 @@ namespace WebApp.Data.EF
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsetting.json")
             .Build();
-
+            #region appsetting
             //Create bien tao ket noi toi appsetting
             var conectionString = configuration.GetConnectionString("WebtestDb");
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
             optionsBuilder.UseSqlServer(conectionString);
             return new AppDbContext(optionsBuilder.Options);
+            #endregion
+
         }
     }
 }

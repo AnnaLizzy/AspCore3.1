@@ -22,7 +22,7 @@ namespace WebApp.ViewModels.Catalog.Products
         public string Description { set; get; }
         [Display(Name = "Chi tiết")]
         public string Details { set; get; }
-        public string SeoDecreption { set; get; }
+        public string SeoDecription { set; get; }
         public string SeoAlias { set; get; }
         public string SeoTitle { set; get; }
         public string LangugeId { set; get; }

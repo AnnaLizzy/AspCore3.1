@@ -8,7 +8,7 @@ using WebApp.Data.Extensions;
 
 namespace WebApp.Data.EF
 {
-    public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
+    public class AppDbContext : IdentityDbContext<Admin, AdminRole, Guid>
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
@@ -35,8 +35,9 @@ namespace WebApp.Data.EF
             modelBuilder.ApplyConfiguration(new SlideConfiguration());
             modelBuilder.ApplyConfiguration(new ProductImageConfiguraton());
 
-            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
-            modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
+            modelBuilder.ApplyConfiguration(new AdminConfiguration());
+            modelBuilder.ApplyConfiguration(new AdminRoleConfiguration());
+            modelBuilder.ApplyConfiguration(new CardConfiguration());
 
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles")
@@ -75,5 +76,6 @@ namespace WebApp.Data.EF
         public DbSet<Slide> Slides { set; get; }
         public DbSet<Transaction> Transactions { set; get; }
         public DbSet<ProductImage> ProductImages { set; get; }
+        public DbSet<Card> Cards { set; get; }
     }
 }

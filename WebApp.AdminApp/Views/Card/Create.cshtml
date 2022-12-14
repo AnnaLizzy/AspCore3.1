@@ -1,0 +1,114 @@
+﻿@model WebApp.ViewModels.Catalog.Card.CardCreateRequest
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h4>Tạo thẻ</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AdminID" class="control-label"></label>
+                <input asp-for="AdminID" class="form-control" />
+                <span asp-validation-for="AdminID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CardNumber" class="control-label"></label>
+                <input asp-for="CardNumber" class="form-control" />
+                <span asp-validation-for="CardNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SerialNumber" class="control-label"></label>
+                <input asp-for="SerialNumber" class="form-control" />
+                <span asp-validation-for="SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ID" class="control-label"></label>
+                <input asp-for="ID" class="form-control" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <label asp-for="Color" class="control-label">Màu thẻ:</label>              
+                <span asp-validation-for="Color" class="text-danger"></span>                
+                <select asp-for="Color" class="form-select" aria-label="Default select example">
+                    <option selected>--Chọn màu-- </option>
+                    <option value="0">Màu trắng</option>
+                    <option value="1">Màu xanh da trời</option>
+                    <option value="2">Màu đỏ</option>
+                    <option value="3">Màu xanh lá</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Company" class="control-label"></label>
+                <input asp-for="Company" class="form-control" />
+                <span asp-validation-for="Company" class="text-danger"></span>
+            </div>
+           @* <div class="form-group">
+                <label asp-for="CreatedTime" class="control-label"></label>
+                <input asp-for="CreatedTime" class="form-control" />
+                <span asp-validation-for="CreatedTime" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="EndTime" class="control-label"></label>
+                <input asp-for="EndTime" class="form-control" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+           @* <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
+                </label>
+            </div>*@
+          
+            <div class="form-group">
+                <label asp-for="ControlType" class="control-label"></label>
+                <input asp-for="ControlType" class="form-control" />
+                <span asp-validation-for="ControlType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkType" class="control-label"></label>
+                <input asp-for="WorkType" class="form-control" />
+                <span asp-validation-for="WorkType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CardModelID" class="control-label"></label>
+                <input asp-for="CardModelID" class="form-control" />
+                <span asp-validation-for="CardModelID" class="text-danger"></span>
+            </div>
+         
+            <div class="form-group">
+                <label asp-for="CardGUID" class="control-label"></label>
+                <input asp-for="CardGUID" class="form-control" />
+                <span asp-validation-for="CardGUID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

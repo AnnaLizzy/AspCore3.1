@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Collections.Generic;
+using WebApp.Applications.Catalog.Cards;
 using WebApp.Applications.Catalog.Products;
 using WebApp.Applications.Common;
 using WebApp.Applications.System.Languages;
@@ -41,7 +42,7 @@ namespace WebApp.BackendApi
             options.UseSqlServer(Configuration.GetConnectionString(SystemConstant.MainConnectionString))
             );
 
-            services.AddIdentity<AppUser, AppRole>()
+            services.AddIdentity<Admin, AdminRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
             //Declare DI đăng kí dịch vụ
@@ -49,17 +50,18 @@ namespace WebApp.BackendApi
 
             services.AddTransient<IProductService, ProductService>();
 
-            services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddTransient<UserManager<Admin>, UserManager<Admin>>();
 
-            services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddTransient<SignInManager<Admin>, SignInManager<Admin>>();
 
-            services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddTransient<RoleManager<AdminRole>, RoleManager<AdminRole>>();
 
             services.AddTransient<IUserService, UserService>();
 
             services.AddTransient<IRoleService, RoleService>();
 
             services.AddTransient<ILanguagesService, LanguagesService>();
+            services.AddTransient<ICardService, CardService>();
             //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator >();
             //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
 

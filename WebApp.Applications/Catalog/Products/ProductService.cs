@@ -68,11 +68,11 @@ namespace WebApp.Applications.Catalog.Products
                 ProductTranslations = new List<ProductTranslation>()
                 {
                     new ProductTranslation()
-                    {
+                    {                        
                         Name = request.Name,
                         Description = request.Description,
                         Details = request.Details,
-                        SeoDescription = request.SeoDecreption,
+                        SeoDescription = request.SeoDecription,
                         SeoAlias = request.SeoAlias,
                         SeoTitle = request.SeoTitle,
                         LanguageId = request.LangugeId,
@@ -166,18 +166,12 @@ namespace WebApp.Applications.Catalog.Products
         {
             //1. Select join 2 bảng
             var query = from p in _context.Products
-                        join pt in _context.ProductTranslations on p.Id equals pt.ProductId
-                        //join pic in _context.ProductInCategories on p.Id equals pic.ProductId
-                        //join c in _context.Categories on pic.CategoryId equals c.Id
+                        join pt in _context.ProductTranslations on p.Id equals pt.ProductId                        
                         where pt.LanguageId == request.LanguageId
                         select new { p, pt};
             //2. Filter
             if (!string.IsNullOrEmpty(request.Keyword))
-                query = query.Where(x => x.pt.Name.Contains(request.Keyword));
-            //if (request.CategoryIds !=null && request.CategoryIds.Count > 0)
-            //{
-            //    query = query.Where(p => request.CategoryIds.Contains(p.pic.CategoryId));
-            //}
+                query = query.Where(x => x.pt.Name.Contains(request.Keyword));           
             //3.Paging
             int totalRow = await query.CountAsync();
 
@@ -305,7 +299,7 @@ namespace WebApp.Applications.Catalog.Products
                 if (ThumbnailImage != null)
                 {
                     ThumbnailImage.FileSize = request.ThumbnailImage.Length;
-                    ThumbnailImage.ImagePath = await this.SaveFile(request.ThumbnailImage);
+                    ThumbnailImage.ImagePath = await SaveFile(request.ThumbnailImage);
                     _context.ProductImages.Update(ThumbnailImage);
                 }
                 product.ProductImages = new List<ProductImage>()

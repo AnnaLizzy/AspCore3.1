@@ -20,12 +20,14 @@
             <input type="hidden" asp-for="Id" />
             @for (var i = 0; i < Model.Roles.Count; i++)
             {
-                <div class="form-group">
+                <div class="custom-control custom-checkbox">
                     <label class="control-label">
                         @Model.Roles[i].Name
-                        <input type="checkbox" asp-for="Roles[i].Selected"  />
+                        <input type="checkbox" class="" asp-for="Roles[i].Selected"  />
+                        <div class="col-md-2">
                         <input type="hidden" asp-for="Roles[i].Id"/>
                         <input type="hidden" asp-for="Roles[i].Name"/>
+                        </div>
                     </label>
                     
                 </div>
